@@ -8,9 +8,11 @@
 
 <title>November 30, 2017 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#november-30-2017-meeting-notes"><h1 id="november-30-2017-meeting-notes">November 30, 2017 Meeting Notes</h1></a><p>Jordan Harband (JHD), Rex Jaeschke (RJE), Michael Saboff (MS), Caridy Patiño (CP), Peter Jensen (PJ), Sebastian McKenzie (SMK), Fabio Rocha (FRA), Till Schneidereit (TST), Peter Hoddie (PHE), Michael Ficarra (MF), Kat Z. Marchán (KZM), Bradley Farias (BFS), Daniel Ehrenberg (DE), Kevin Gibbons (KGS), Chip Morningstar (CM), Dave Herman (DH), Aki Rose (ARE), Godfrey Chan (GCN), Yehuda Katz (YK), Natalie Silvanovich (NSH), Adam Klein (AKN), Alan Schmitt (AS), Andrew Paprocki (API), Chris Hyle (CHE), Mattijs Hoitink (MHK), Mark Miller (MM), Mathias Bynens (MB), Keith Cirkel (KCL), Justin Ridgewell (JRL), Shu-yu Guo (SYG), Zibi Braniecki (ZB), Mariko Kosaka (MKA), Sam Goto (SGO), Keith Miller (KMR), Sebastian Markbage (SM), Dean Tribble (DT), Jafar Husain (JHN)</p>
+<a href="#november-30-2017-meeting-notes"><h1 id="november-30-2017-meeting-notes">November 30, 2017 Meeting Notes</h1></a><hr>
+<p>Jordan Harband (JHD), Rex Jaeschke (RJE), Michael Saboff (MS), Caridy Patiño (CP), Peter Jensen (PJ), Sebastian McKenzie (SMK), Fabio Rocha (FRA), Till Schneidereit (TST), Peter Hoddie (PHE), Michael Ficarra (MF), Kat Z. Marchán (KZM), Bradley Farias (BFS), Daniel Ehrenberg (DE), Kevin Gibbons (KG), Chip Morningstar (CM), Dave Herman (DH), Aki Rose (ARE), Godfrey Chan (GCN), Yehuda Katz (YK), Natalie Silvanovich (NSH), Adam Klein (AK), Alan Schmitt (AS), Andrew Paprocki (API), Chris Hyle (CHE), Mattijs Hoitink (MHK), Mark S. Miller (MM), Mathias Bynens (MB), Keith Cirkel (KCL), Justin Ridgewell (JRL), Shu-yu Guo (SYG), Zibi Braniecki (ZB), Mariko Kosaka (MKA), Sam Goto (SGO), Keith Miller (KM), Sebastian Markbåge (SM), Dean Tribble (DT), Jafar Husain (JH)</p>
 <p>Remote:
-Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</p>
+István Sebestyén (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</p>
+<hr>
 <a href="#10ivd-objectfreeze--objectseal-syntax-proposal-for-stage-0"><h2 id="10ivd-objectfreeze--objectseal-syntax-proposal-for-stage-0">10.iv.d Object.freeze + Object.seal syntax proposal for Stage 0</h2></a><p>(Keith Cirkel)</p>
 <ul>
 <li><a href="https://github.com/keithamus/object-freeze-seal-syntax/">proposal</a></li>
@@ -35,9 +37,9 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>CM: To clarify, I'm wondering about a syntax for freezing existing objects.</p>
 <p>BFS: There are other things which have literals and are mutable, like RegExps, functions, etc. Should we do something for those, like Chip's proposal?</p>
 <p>KCL: Good point</p>
-<p>AKN: This uses a lot of syntactic space, in a limited area. I would've allowed things like the decoration of objects for that, given that we already have a way to do this.</p>
+<p>AK: This uses a lot of syntactic space, in a limited area. I would've allowed things like the decoration of objects for that, given that we already have a way to do this.</p>
 <p>KCL: This finds utility in a variety of places, including arguments; this makes it significantly useful to make sense to use this space.</p>
-<p>AKN: I disagree with the intuition that these are similar. I think sealing arguments are better done by type systems, and maybe if statements at runtime. I'm sort of opposed to using up this syntactic space when we could be using it for something new.</p>
+<p>AK: I disagree with the intuition that these are similar. I think sealing arguments are better done by type systems, and maybe if statements at runtime. I'm sort of opposed to using up this syntactic space when we could be using it for something new.</p>
 <p>DH: The comparison to rest/spread is interesting. Unlike rest/spread, this creates a sort of combinatorial explosion. This increases the decision space--will we have the hash wars next, among people who are debating whether you should use hash everywhere? This comes at a big cost for the jobs of programmers and the ecosystem to figure out what the preferred style. We end up not resolving them, just getting factions.  I agree on the motivations, but I'm stuck on the cost.</p>
 <p>KCL: Do you see a lower-cost path?</p>
 <p>DH: I don't know of one. You have to go with the grain of the language; I've become more conservative about additions over time. Doubling the number of ways that you can express the same concept is not an approach I feel good about. I know this is at an early stage; I am not saying I object.</p>
@@ -148,7 +150,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <li><a href="https://docs.google.com/presentation/d/1wKktzSOKnVIUAnfDHgTVOlQp-O3OBtHN4dKX8--DQvc/edit#slide=id.g2a0c41676b_0_49">presentation</a></li>
 </ul>
 <p>DE: (Presenting)</p>
-<p>AKN: This meets my criteria - we seem to be happy with instance fields but static fields are the ones causing problems.</p>
+<p>AK: This meets my criteria - we seem to be happy with instance fields but static fields are the ones causing problems.</p>
 <p>YK: Likewise.</p>
 <p>MS: Are these already split?</p>
 <p>DE: Yes but along different lines.</p>
@@ -175,7 +177,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>MKA: Want to add a user perspective: I recently worked at a small company that used the &quot;standard&quot; (no semicolons) linter, and we used it because we never had to argue about the code style. I've seen similar issues in small companies, and have seen people choose the &quot;standard&quot; linter to avoid having to think about semicolons. Point is: many people use “Standard” but it doesn’t mean they all feel strongly about avoiding semicolons.</p>
 <p>DE: So does that mean that many programmers who omit semicolons don't care particularly about semicolons, just about following the linter rules?</p>
 <p>MKA: I think for a big group of programmers, yes.</p>
-<p>AKN: Named infix operators worry me. But it seems this problem isn't specific to class bodies; new infix operators are problematic due to ASI in general, correct?</p>
+<p>AK: Named infix operators worry me. But it seems this problem isn't specific to class bodies; new infix operators are problematic due to ASI in general, correct?</p>
 <p>DE: That's right; the myIn example on the slides was a mistake, and we already would've needed some no-newline markers regardless of what we choose for ASI in class bodies.</p>
 <p>DT: Is there the option of disabling ASI in a strict mode?</p>
 <p>DE: Part of the takeaway from the 1JS presentation is that such a switch has a cost for everyone. We've been using a policy of not having a bunch of grammar switches, making an easier upgrade path and more unified mental model.</p>
@@ -193,7 +195,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>YK: When Brendan tried to coerce people away from this is that ASI is a form of error correction - so writing semi-colon free code is making a lot of errors.</p>
 <p>DE: That’s a good case for taking a stance as a committee and saying, we’ll require semicolons here.</p>
 <p>YK: I think we could set a point of saying that we should avoid introducing new ASI hazards as a reasonable compromise</p>
-<p>AKN: Avoiding ASI hazards does not seem reasonable</p>
+<p>AK: Avoiding ASI hazards does not seem reasonable</p>
 <p>JRL: A hair brained idea: could we add NLTs to infix operators in class bodies.</p>
 <p>DE: I think it'd be pretty strange if the grammar of expressions differed based on where they were used.</p>
 <p>DE: Does anyone have any strong concerns about having ASI hazards in class bodies</p>
@@ -201,18 +203,18 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>DE: Well, I mean it’s not extra work now as we have Babel and V8 implementing these with the ASI hazards in place. What we're concerned about though is providing a set of footguns for users. What do you think about this?</p>
 <p>KZM: Well people will still hit errors.</p>
 <p>DH: The two things fighting in my head is: on the one hand to a person whos used to not using semicolons it will be a hostile move to require them. Putting a semiclon at the end of a &quot;line&quot; (vs a semicolon in a for loop) is telling developers who are used to not using semicolons that their style is wrong. The problem on the other side is the list of new gotchas that will trip these people up - throwing a bunch of new hazards at them. Either approach has a downside for the no-semicolon camp.</p>
-<p>AKN: Yes thats imporant, we are hurting programmers either way</p>
+<p>AK: Yes thats imporant, we are hurting programmers either way</p>
 <p>ZB: A company I have just spoken to who are ASI users have just said that they expect us a committee to tell them what to do. If we tell them that semicolons are important then they will follow that.</p>
 <p>MM: I would love to tell them that. I hereby tell them that. Does it make sense process wise for a group to make the statement like that though?</p>
 <p>DE: We don't have to state anything though</p>
-<p>AKN: The reason it has to be more than that is we can't require semicolons in statement lists, or modules, or strict mode. We're not going to require it in function blocks by the looks.</p>
+<p>AK: The reason it has to be more than that is we can't require semicolons in statement lists, or modules, or strict mode. We're not going to require it in function blocks by the looks.</p>
 <p>ZB: If we can make a statement saying that ASI wont be consistent with the evolution of the language we should make that statement</p>
 <p>MM: A good suggestion</p>
 <p>DE: I'm not sure we can make a statement like that.</p>
 <p>MB: Yehuda pointed out that Brendan always said ASI was error correction. Kat repeated that point. That fact won’t change, we're just saying there are new rules that apply to new things. It sounds like we already have a statement.</p>
 <p>DE: It seems like the conclusion is we don't have strong arguments to either.</p>
 <p>JHD: I think there is one objective point on how it prevents the future additions to the language. Adding things like <code>const</code> keywords or <code>+</code> or <code>*</code> - any new prefix sigil for methods or functions is now restricted. We always say we don’t want to take up syntactic space - partly because of user cognitive load but also because we dont want to limit future evolution of the language.</p>
-<p>AKN: Well we add NLTs to every keyword which goes inside class bodies. For extra tokens which work like <code>*</code>, probably better to just not do that since it's difficult to understand.</p>
+<p>AK: Well we add NLTs to every keyword which goes inside class bodies. For extra tokens which work like <code>*</code>, probably better to just not do that since it's difficult to understand.</p>
 <p>DE: There are some ugly failure modes for ASI though. <code>protected function</code> as a potential new feature is a new ASI hazard.</p>
 <p>JHD: Well I guess my argument stops being strong if we have a requirement for NLTs for all prefix keywords.</p>
 <p>DE: Anyone remember why we have the NLT for async method declarations? Is this because async method declarations inherently need the NLT?</p>
@@ -222,7 +224,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>RBN: We also treat get with a new line as a field named get. So the same ASI hazards as in your slides.</p>
 <p>DE: Interesting that TypeScript deviates from the specification here. So, this seems like circumstantial evidence of ASI being okay. Where do we go from here? I'm thinking we stick with ASI in light of all this info.</p>
 <p>YK: It continues to feel weird to me that there is on balance more support in the committee to prevent ASI but we can't seem to arrive on consensus on it.</p>
-<p>AKN: How is this an issue? Sounds like an issue of voting majority.</p>
+<p>AK: How is this an issue? Sounds like an issue of voting majority.</p>
 <p>DE: On the bug thread many JS devs wrote in to tell us they'd be disappointed with not having ASI.</p>
 <p>ZB: We seem to operating on extremes - either banning or encouraging it. We can still keep ASI for the original error correction for newbies but send signals to strong ASI proponents that relying on ASI as a stylistic choice is not sustainable.</p>
 <p>DE: It seems a clear way forward to say we can support ASI here but we're not sure how many more features will continue to work out like this.</p>
@@ -232,7 +234,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>KCL: I would counterpoint that, part of the problem we have is that TC39 doesn't communicate enough to the community - and so no guidance is still guidance. My interpretation of ES6 - where in class bodies methods being very not required - this to me is a signal that the committee was moving away from strong semicolon usage - contrary to what the committee seems to be saying here.</p>
 <p>DH: There are a couple of realistic pieces of feedback we can give people: there are more hazards for ASI now; and this one was exceptionally hard - we're not giving up but it may become more and more challenging to continue enabling ASI.</p>
 <p>JHD: Real quick - about making a statement: I care about people who use JS in the future not the past. Making the statement matters for people - providing guidance is important, as Keith says no guidance is also guidance.</p>
-<p>KMR: ??</p>
+<p>KM: ??</p>
 <p>ZB: It'll be more painful in the future if your whole stylistic choice is invalid.</p>
 <p>MB: I just want to say this is only about new features and new code they write. It doesnt mean people need to rewrite all of their old code.</p>
 <p>DE: So it sounds like we're reaching consensus on making a statement to the community. Perhaps we can use the reflector to work on a statement on this. For now; I propose allowing ASI. Any objections?</p>
@@ -240,7 +242,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>DE: Are there other things that aren't on the slides? Or is it just these 2 cases?</p>
 <p>MM: No its introducing new features like keywords, get, set, async.</p>
 <p>DE: In particular async <em>is</em> consistent because of NLT.</p>
-<p>AKN: Yes the slides are confusing. We can do more like async - just not needing NLT.</p>
+<p>AK: Yes the slides are confusing. We can do more like async - just not needing NLT.</p>
 <p>MM: So if get/set/static had NLT then this wouldn't be an issue?</p>
 <p>DE: Correct</p>
 <p>MM: Okay, I return to not objecting.</p>
@@ -258,12 +260,12 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 </ul>
 <p>SGO: I gathered technical concerns, and I have stuff to go back with. Putting aside procedural advancement to any stage I want to know if I should come back with this specification in a later meeting.</p>
 <p>BFS: I would like to see either a complete solution like macros, or a smaller solution focussed, coupled, around the common use cases.</p>
-<p>AKN: I think you should ask a more direct question. Asking for stage 1 is often a way of gauging what you're asking. So you should ask for that.</p>
+<p>AK: I think you should ask a more direct question. Asking for stage 1 is often a way of gauging what you're asking. So you should ask for that.</p>
 <p>SGO: The stage criteria is: identifying the problem, shape of the solution, and the comittee expects to spend more time on this?</p>
-<p>AKN: Correct</p>
+<p>AK: Correct</p>
 <p>MM: I would like to see this go to stage 1. I'm more enthusiastic about this proposal than macros. Hygiene is well short of sufficient for static analysis. This proposal enables tremendously more reliable reasoning statically than any macro proposal I've seen.</p>
-<p>KMR: I'm concerned of the viability of the solution. Its better than a C-style macro, but I'm concerned heavily with the proposal lacking a lot. I'm not necessarily opposed to stage 1, just very concerned.</p>
-<p>AKN: Concretely that means some would like stage 1 and some have implementation concerns.</p>
+<p>KM: I'm concerned of the viability of the solution. Its better than a C-style macro, but I'm concerned heavily with the proposal lacking a lot. I'm not necessarily opposed to stage 1, just very concerned.</p>
+<p>AK: Concretely that means some would like stage 1 and some have implementation concerns.</p>
 <p>JHD: Yes, it might not progress to stage 2 but this is the point of stage 1. But take away that you have many things to establish before people will be comfortable with it.</p>
 <p>DH: It does feel like there are pieces you can factor out - and layer this. You might find it easier to satisfy conerns by taking it 1 stage at a time. I know for you the <code>::</code> stuff is what you're most interested in but that is a big feature - personally I want to see this proposal without that for now. I think it'll get consensus faster.</p>
 <a href="#conclusionresolution-10ive-block-params-to-stage-1"><h4 id="conclusionresolution-10ive-block-params-to-stage-1">Conclusion/Resolution</h4></a><ul>
@@ -293,7 +295,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>GCN: I'm mainly saying why I don't participate as much as others. I check with other comittee members but if that resouce is made available to everyone - or better ways to crawl the previous discussion would be useful.</p>
 <p>DH: Having the public backchannel conversation in IRC is helpful and high speed and you don't need to tell every newcommer to read the old docs. However not everyone uses IRC. I wonder if some people have a problem with that.</p>
 <p>DE: If you look at TC39's internal IRC channel, maybe not even half the people in the room are in it despite almost everyone having their laptop open. Maybe switching to Slack or Gitter is worth investigating?</p>
-<p>KMR: Maybe it'd be useful to have people on their own - having a buddy system where people can quietly ask questions can be useful.</p>
+<p>KM: Maybe it'd be useful to have people on their own - having a buddy system where people can quietly ask questions can be useful.</p>
 <p>ARE: How do we feel about a tc39/how-we-work repo?</p>
 <p>Everyone: thumbs up</p>
 <p>DT: Why a separate repo?</p>

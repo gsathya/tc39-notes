@@ -8,8 +8,8 @@
 
 <title>September 19, 2012 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#september-19-2012-meeting-notes"><h1 id="september-19-2012-meeting-notes">September 19, 2012 Meeting Notes</h1></a><p>John Neumann (JN), Mark Miller (MM), Norbert Lindenberg (NL), Nebojsa Ciric (NC), Allen Wirfs-Brock (AWB), Istvan Sebastian (IS), Luke Hoban (LH), Paul Leathers (PB), Sam Tobin-Hochstadt (STH), Andreas Rossberg (ARB), Brendan Eich (BE), Erik Arvidsson (EA), Dave Herman (DH), Yehuda Katz (YK), Rick Waldron (RW), Eric Ferraiuolo (EF), Matt Sweeney (MS), Doug Crockford (DC), Alex Russell (AR), Rafael Weinstein (RWS), Waldemar Horwat (WH), Tom Van Cutsem (TVC, phone)</p>
-<p>Recap of Sept 18th notes.</p>
+<a href="#september-19-2012-meeting-notes"><h1 id="september-19-2012-meeting-notes">September 19, 2012 Meeting Notes</h1></a><hr>
+<a href="#john-neumann-jn-mark-s-miller-mm-norbert-lindenberg-nl-nebojsa-ciric-nc-allen-wirfs-brock-awb-istvan-sebestyen-is-luke-hoban-lh-paul-leathers-pb-sam-tobin-hochstadt-sth-andreas-rossberg-arb-brendan-eich-be-erik-arvidsson-ea-dave-herman-dh-yehuda-katz-yk-rick-waldron-rw-eric-ferraiuolo-ef-matt-sweeney-ms-doug-crockford-dc-alex-russell-ar-rafeal-weinstein-rwn-waldemar-horwat-wh-tom-van-cutsem-tvc"><h2 id="john-neumann-jn-mark-s-miller-mm-norbert-lindenberg-nl-nebojsa-ciric-nc-allen-wirfs-brock-awb-istvan-sebestyen-is-luke-hoban-lh-paul-leathers-pb-sam-tobin-hochstadt-sth-andreas-rossberg-arb-brendan-eich-be-erik-arvidsson-ea-dave-herman-dh-yehuda-katz-yk-rick-waldron-rw-eric-ferraiuolo-ef-matt-sweeney-ms-doug-crockford-dc-alex-russell-ar-rafeal-weinstein-rwn-waldemar-horwat-wh-tom-van-cutsem-tvc">John Neumann (JN), Mark S. Miller (MM), Norbert Lindenberg (NL), Nebojša Ćirić (NC), Allen Wirfs-Brock (AWB), István Sebestyén (IS), Luke Hoban (LH), Paul Leathers (PB), Sam Tobin-Hochstadt (STH), Andreas Rossberg (ARB), Brendan Eich (BE), Erik Arvidsson (EA), Dave Herman (DH), Yehuda Katz (YK), Rick Waldron (RW), Eric Ferraiuolo (EF), Matt Sweeney (MS), Doug Crockford (DC), Alex Russell (AR), Rafeal Weinstein (RWN), Waldemar Horwat (WH), Tom Van-Cutsem (TVC)</h2></a><a href="#agenda"><h2 id="agenda">Agenda</h2></a><p>Recap of Sept 18th notes.</p>
 <a href="#proxy"><h2 id="proxy">Proxy</h2></a><p>(Tom Van Cutsem, Free University of Brussels)</p>
 <a href="#enumerate-traps-return-types"><h2 id="enumerate-traps-return-types">Enumerate Traps Return Types</h2></a><p>TVC: change return type of enumerate() trap from array-of-string to iterator. Requires waiving the check for duplicate property names</p>
 <a href="#conclusionresolution-enumerate-traps-return-types"><h4 id="conclusionresolution-enumerate-traps-return-types">Conclusion/Resolution</h4></a><ul>
@@ -59,7 +59,7 @@ BE: yes, non-revokable proxies have less trap overhead (no null-check)</p>
 <p>BE: It remembers &quot;function&quot; or &quot;object&quot;
 TVC: right</p>
 <p>DH:</p>
-<p>RWS: Does this problem exist...</p>
+<p>RWN: Does this problem exist...</p>
 <p>STH: revokable proxies don't add any new semantics b/c you can already write a direct proxy that throws the same error on every operation (it just uses more memory)</p>
 <p>WH: Direct proxy, not allowed to muck with</p>
 <p>MM: Are</p>
@@ -473,7 +473,7 @@ Global Object and Global Lexical Scope... when a <code>let</code> binding occurs
 <li>Shadows all properties on the Global object</li>
 <li>Does not create a Global property</li>
 </ul>
-<a href="#test-262"><h2 id="test-262">Test 262</h2></a><p>(Istvan Sebastian, ECMA)</p>
+<a href="#test-262"><h2 id="test-262">Test 262</h2></a><p>(István Sebestyén, ECMA)</p>
 <p>IS: Someone needs to update the site with the latest version of the test suite in zip file format.</p>
 <p>LH/RW/AWB: Needs to be an automated process, if that's possible within the scope of ECMA's policies.</p>
 <p>IS: Needs archival snapshots. The standards body is still a classic style standards organization that needs to abide its rules and policies.</p>

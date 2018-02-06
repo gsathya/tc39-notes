@@ -6,9 +6,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
 
-<title>Sept 18, 2013 Meeting Notes</title>
+<title>September 18, 2013 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#sept-18-2013-meeting-notes"><h1 id="sept-18-2013-meeting-notes">Sept 18, 2013 Meeting Notes</h1></a><p>John Neumann (JN), Dave Herman (DH), Istvan Sebestyen (IS), Alex Russell (AR), Allen Wirfs-Brock (AWB), Erik Arvidsson (EA), Eric Ferraiuolo (EF), Doug Crockford (DC), Luke Hoban (LH), Anne van Kesteren (AVK), Brendan Eich (BE), Brian Terlson (BT), Rick Waldron (RW), Waldemar Horwat (WH), Rafael Weinstein (RWS), Boris Zbarsky (BZ), Domenic Denicola (DD), Tim Disney (TD), Niko Matsakis (NM), Jeff Morrison (JM), Sebastian Markbage (SM), Oliver Hunt (OH), Sam Tobin-Hochstadt (STH), Dmitry Lomov (DL), Andreas Rossberg (ARB), Matt Sweeney (MS), Reid Burke (RB), Philippe Le Hégaret (PLH), Simon Kaegi (SK), Paul Leathers (PL), Corey Frang (CF)</p>
+<a href="#september-18-2013-meeting-notes"><h1 id="september-18-2013-meeting-notes">September 18, 2013 Meeting Notes</h1></a><hr>
+<p>John Neumann (JN), Dave Herman (DH), István Sebestyén (IS), Alex Russell (AR), Allen Wirfs-Brock (AWB), Erik Arvidsson (EA), Eric Ferraiuolo (EF), Doug Crockford (DC), Luke Hoban (LH), Anne van Kesteren (AVK), Brendan Eich (BE), Brian Terlson (BT), Rick Waldron (RW), Waldemar Horwat (WH), Rafeal Weinstein (RWN), Boris Zbarsky (BZ), Domenic Denicola (DD), Tim Disney (TD), Niko Matsakis (NM), Jeff Morrison (JM), Sebastian Markbåge (SM), Oliver Hunt (OH), Sam Tobin-Hochstadt (STH), Dmitry Lomov (DL), Andreas Rossberg (ARB), Matt Sweeney (MS), Reid Burke (RB), Philippe Le Hégaret (PLH), Simon Kaegi (SK), Paul Leathers (PL), Corey Frang (CF)</p>
+<hr>
 <a href="#42-reconsider-decision-to-make-typed-arrays-non-extensible-cont"><h2 id="42-reconsider-decision-to-make-typed-arrays-non-extensible-cont">4.2 Reconsider decision to make Typed Arrays non-extensible (Cont)</h2></a><p>RW: (recapping yesterday's discussion)</p>
 <p>EA: Can we pick 3 people to champion a recommendation?</p>
 <p>RW: Ideal</p>
@@ -292,64 +294,64 @@ WH: We said that array subclasses are new and safe because unmodified code won't
 <li>AWB commits to bringing a proposal for user defined well-known symbol registration</li>
 </ul>
 <a href="#6-post-es6-spec-process"><h2 id="6-post-es6-spec-process">6. Post ES6 Spec Process</h2></a><p>(Rafael Weinstein) - <a href="http://slid.es/rafaelweinstein/tc39-process">http://slid.es/rafaelweinstein/tc39-process</a></p>
-<p>RWS: put together some thoughts after the last meeting with DL, EA, AWB, etc.</p>
-<p>RWS: most of it is good except that it's date driven and the consensus requirements lead to a high-stakes game for getting features into the game.</p>
-<p>RWS: The second problem is that with large-quanta spec releases, there's a varrying maturity level for proposals. Stable stuff is &quot;held hostage&quot; to newer features.</p>
-<p>RWS: as we near a release, we end up with large pressure around things which may or may-not make it. Argue that this is destructive to feature quality.</p>
-<p>RWS: we also have an informal process. It occurs to us that acceptance of features comes before details are sorted out. Implementers, therefore, lack a clear signal about when it's time to start implementing features. Might be unavoidable, but other groups show a different way (W3C, e.g.)</p>
-<p>RWS: we also have a single spec writer who bears the full burden of authoring spec text.</p>
-<p>RWS: a few ideas:</p>
+<p>RWN: put together some thoughts after the last meeting with DL, EA, AWB, etc.</p>
+<p>RWN: most of it is good except that it's date driven and the consensus requirements lead to a high-stakes game for getting features into the game.</p>
+<p>RWN: The second problem is that with large-quanta spec releases, there's a varrying maturity level for proposals. Stable stuff is &quot;held hostage&quot; to newer features.</p>
+<p>RWN: as we near a release, we end up with large pressure around things which may or may-not make it. Argue that this is destructive to feature quality.</p>
+<p>RWN: we also have an informal process. It occurs to us that acceptance of features comes before details are sorted out. Implementers, therefore, lack a clear signal about when it's time to start implementing features. Might be unavoidable, but other groups show a different way (W3C, e.g.)</p>
+<p>RWN: we also have a single spec writer who bears the full burden of authoring spec text.</p>
+<p>RWN: a few ideas:</p>
 <ul>
 <li>decouple additions from dates</li>
 <li>put structure around stages of maturity</li>
 <li>what does each stage mean? Get clarity</li>
 </ul>
-<p>RWS: non-goal: componentize the spec or break apart responsibility from the whole group. Also a non-goal to change the rate of evolution (necessarialy).</p>
-<p>RWS: looked at how the W3C works and tried to extract the bits that seem to work well. A 4-stage process:
+<p>RWN: non-goal: componentize the spec or break apart responsibility from the whole group. Also a non-goal to change the rate of evolution (necessarialy).</p>
+<p>RWN: looked at how the W3C works and tried to extract the bits that seem to work well. A 4-stage process:
 1.) proposal
 2.) working draft
 3.) candidate draft
 4.) last call</p>
-<p>RWS: At a (much more) regular interval, we'd post (smaller delta) drafts to ECMA.</p>
+<p>RWN: At a (much more) regular interval, we'd post (smaller delta) drafts to ECMA.</p>
 <p>AWB: do these stages line up with W3C terminology?</p>
 <p>(sort of, not really)</p>
-<p>RWS: proposals outline the problem, need, API, key algorithms, and identification of cross-cutting concerns. Also, and identified champion. Acceptance signifies the idea that the solution is something the committee wants to keep working on.</p>
-<p>RWS: note that we don't explicitly slate a specific revision is targeted for a proposal. That comes later.</p>
+<p>RWN: proposals outline the problem, need, API, key algorithms, and identification of cross-cutting concerns. Also, and identified champion. Acceptance signifies the idea that the solution is something the committee wants to keep working on.</p>
+<p>RWN: note that we don't explicitly slate a specific revision is targeted for a proposal. That comes later.</p>
 <p>AWB: concerned that we might accumulate accepted proposals that there's no activity on. How can we structure a cull?</p>
 <p>BE: as needed. FileSystem API as example.</p>
-<p>RWS: the analog might be the &quot;deliverables list&quot; used by W3C -- removing something from the list on the wiki could be that thing</p>
+<p>RWN: the analog might be the &quot;deliverables list&quot; used by W3C -- removing something from the list on the wiki could be that thing</p>
 <p>DH: Not to componentize? Seems like there is something of a componentization and that's the value?</p>
-<p>RWS: don't want to abandon the goal of language coherence. CSS did this wrong and have lots of weirdness as a result. Non-communicating editors lead to pain. This model is different: everything merges into a single spec.</p>
+<p>RWN: don't want to abandon the goal of language coherence. CSS did this wrong and have lots of weirdness as a result. Non-communicating editors lead to pain. This model is different: everything merges into a single spec.</p>
 <p>DH: how is this different to what we're doing now? Maybe this is a smaller tweak?</p>
 <p>BE: What this does is adds more staging before &quot;proposal&quot;</p>
-<p>RWS: this is saying the first stage doesn't have spec text, but the second stage does.</p>
+<p>RWN: this is saying the first stage doesn't have spec text, but the second stage does.</p>
 <p>DH: Makes a lot of sense, might make sense to spell out the earlier &quot;incubator&quot; stage.</p>
-<p>RWS: so there might be a stage-0, which is sort of the strawman we've had before</p>
-<p>RWS: what we want to see at stage 2 is draft spec text. It can have early-quality notes, etc. but thought should be put into the text for the feature before we collectively accept the feature.</p>
-<p>RWS: there are a couple of key things to look at: can we decouple spec editions from specific features? what are the substantives stages of maturity?</p>
+<p>RWN: so there might be a stage-0, which is sort of the strawman we've had before</p>
+<p>RWN: what we want to see at stage 2 is draft spec text. It can have early-quality notes, etc. but thought should be put into the text for the feature before we collectively accept the feature.</p>
+<p>RWN: there are a couple of key things to look at: can we decouple spec editions from specific features? what are the substantives stages of maturity?</p>
 <p>BE: quick question: the i18n spec was on a different track, is this only for core stuff
 (quotes FakeAlexRussell??)</p>
 <p>(sort of, might be a way to draw stuff into the main spec)</p>
-<p>RWS: stage 3 is the &quot;Candidate Draft&quot;. It signifies that the committee thinks the scope of the feature is set. We can incorporate changes, but the key thing is that implementations are potentially costly. This stage is a green-light for implementing and final feed-back</p>
-<p>RWS: stage 4 is &quot;last call draft&quot;. 2 implementations and an acceptance test that they pass. Once accepted at this stage, the draft can be scheduled for the next spec to be published.</p>
-<p>RWS: what about dependencies? The committee isn't absolved of this. IT's up to us to manage them and there isn't any silver bullet. We need to make decisions.</p>
-<p>RWS: thought a lot about linkage as a part of this. A champion's interests might work against the language (ducking dependencies, etc.). The committee still needs to advise and continue to look over the landscape.</p>
+<p>RWN: stage 3 is the &quot;Candidate Draft&quot;. It signifies that the committee thinks the scope of the feature is set. We can incorporate changes, but the key thing is that implementations are potentially costly. This stage is a green-light for implementing and final feed-back</p>
+<p>RWN: stage 4 is &quot;last call draft&quot;. 2 implementations and an acceptance test that they pass. Once accepted at this stage, the draft can be scheduled for the next spec to be published.</p>
+<p>RWN: what about dependencies? The committee isn't absolved of this. IT's up to us to manage them and there isn't any silver bullet. We need to make decisions.</p>
+<p>RWN: thought a lot about linkage as a part of this. A champion's interests might work against the language (ducking dependencies, etc.). The committee still needs to advise and continue to look over the landscape.</p>
 <p>(discussion)</p>
 <p>AWB: implicit in this is redefining the role of the editor to be more of an EDITOR, and less of an author. Should probably have a role in advancing proposals.</p>
-<p>RWS: so still a world where there's a single editor?</p>
+<p>RWN: so still a world where there's a single editor?</p>
 <p>AWB: yes.</p>
 <p>(general agreement)</p>
 <p>PLH: Noting that some of the process order might be confusing/out of order, with regard to naming?</p>
-<p>RWS: yes, &quot;last call&quot; means somethign different in W3C that doesn't map well</p>
+<p>RWN: yes, &quot;last call&quot; means somethign different in W3C that doesn't map well</p>
 <p>YK: the year might be a red-herring. The point isn't the date and the goal isn't to rush things under the wire.</p>
-<p>RWS: (refers to Chrome release process) (not quite Chrome, but close and relevant: <a href="https://developers.google.com/v8/launchprocess">https://developers.google.com/v8/launchprocess</a> )</p>
+<p>RWN: (refers to Chrome release process) (not quite Chrome, but close and relevant: <a href="https://developers.google.com/v8/launchprocess">https://developers.google.com/v8/launchprocess</a> )</p>
 <p>AWS: some of the non-technical overhead can be offloaded</p>
 <p>DL: part of the goal is to help offload the work, getting more people writing more spec text.</p>
 <p>(notes that this happened for Proxies and O.o)</p>
 <p>DL: inside the v8 team, we don't have a ton of visibility into the maturity of features.</p>
 <p>BE: spidermonkey has shipped many things over the years, but at a cost</p>
 <p>(discussion about implementations and style)</p>
-<p>RWS: so we can imagine that you'd have different styles of implamentations at each stage? Makes sense.</p>
+<p>RWN: so we can imagine that you'd have different styles of implamentations at each stage? Makes sense.</p>
 <p>(agreement)</p>
 <p>AVK: the w3c is removing the last couple of these steps</p>
 <p>PLH: there's a new draft on github somewhere</p>
@@ -359,13 +361,13 @@ WH: We said that array subclasses are new and safe because unmodified code won't
 <p>(discussion)</p>
 <p>WH: What about mutualy beneficial features?</p>
 <p>AR: that's the dependency question, we talked about that</p>
-<p>RWS: it's sort of arbitrary, but that exists no matter what. There's no silver bullet. It's the job of the committee to keep an eye on what's in flight. Not sure a process can ensure that we can do that well or poorly.</p>
+<p>RWN: it's sort of arbitrary, but that exists no matter what. There's no silver bullet. It's the job of the committee to keep an eye on what's in flight. Not sure a process can ensure that we can do that well or poorly.</p>
 <p>WH: not componentizing is good, but want to make sure that the process doesn't get in the way.</p>
 <p>BE: true.</p>
 <p>AWS: if we see things that are tightly linked, we might treat them that way</p>
-<p>RWS: as I said earlier, the committee can choose to merge them</p>
+<p>RWN: as I said earlier, the committee can choose to merge them</p>
 <p>WH: is the intent that the spec will be written by many people? or a single author?</p>
-<p>RWS: the hope is that we'll have more authors for sections of the text, and it'll continue to be the responsibility of the (single) editor to maintain quality.</p>
+<p>RWN: the hope is that we'll have more authors for sections of the text, and it'll continue to be the responsibility of the (single) editor to maintain quality.</p>
 <p>YK: I've found it useful to go throuh the exercise of writing spec text</p>
 <p>LH: I like that aspect of this proposal quite a lot</p>
 <p>DH: I've found it useful to write things in pseudo-code when exploring many alternatives...there's a cost for writing it out that way</p>

@@ -8,8 +8,8 @@
 
 <title>January 26, 2017 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#january-26-2017-meeting-notes"><h1 id="january-26-2017-meeting-notes">January 26, 2017 Meeting Notes</h1></a><p>Allen Wirfs-Brock (AWB), Waldemar Horwat (WH), Jordan Harband (JHD), Brian Terlson (BT), Michael Ficarra (MF), Adam Klein (AK), Chip Morningstar (CM), Dave Herman (DH), Kent C. Dodds (KCD), Kevin Gibbons (KG), Tim Disney (TD), Daniel Ehrenberg (DE), Shu-yu Guo (SYG), Michael Saboff (MS), James Kyle (JK), Franziska Hinkelmann (FHN), Anna Henningsen (AH), John Lenz (JLZ), Sebastian Markbage (SM), Bradley Farias (BF), Jeff Morrison (JM), Tyler Kellen (TKN), Gabriel Isenberg (GI), James Snell (JSL), Maggie Pint (MPT), Chris Hyle (CH), Bert Belder (BBR), Zibi Braniecki (ZB), Jamund Ferguson (JXF), Istvan Sebestyen (IS), Keith Miller (KM), Myles Borins (MBS)</p>
-<a href="#looking-at-the-proposal-list"><h2 id="looking-at-the-proposal-list">Looking at the proposal list</h2></a><p>(Dave Herman)</p>
+<a href="#january-26-2017-meeting-notes"><h1 id="january-26-2017-meeting-notes">January 26, 2017 Meeting Notes</h1></a><hr>
+<a href="#allen-wirfs-brock-awb-waldemar-horwat-wh-jordan-harband-jhd-brian-terlson-bt-michael-ficarra-mf-adam-klein-ak-chip-morningstar-cm-dave-herman-dh-kent-c-dodds-kcd-kevin-gibbons-kg-tim-disney-td-daniel-ehrenberg-de-shu-yu-guo-syg-michael-saboff-ms-james-kyle-jk-franziska-hinkelmann-fhn-anna-henningsen-ah-john-lenz-jlz-sebastian-markbage-sm-bradley-farias-bfs-jeff-morrison-jm-tyler-kellen-tkn-gabriel-isenberg-gi-james-snell-jsl-maggie-pint-mpt-chris-hyle-ch-bert-belder-bbr-zibi-braniecki-zb-jamund-ferguson-jxf-istvan-sebestyen-is-keith-miller-km-myles-borins-mbs"><h2 id="allen-wirfs-brock-awb-waldemar-horwat-wh-jordan-harband-jhd-brian-terlson-bt-michael-ficarra-mf-adam-klein-ak-chip-morningstar-cm-dave-herman-dh-kent-c-dodds-kcd-kevin-gibbons-kg-tim-disney-td-daniel-ehrenberg-de-shu-yu-guo-syg-michael-saboff-ms-james-kyle-jk-franziska-hinkelmann-fhn-anna-henningsen-ah-john-lenz-jlz-sebastian-markbage-sm-bradley-farias-bfs-jeff-morrison-jm-tyler-kellen-tkn-gabriel-isenberg-gi-james-snell-jsl-maggie-pint-mpt-chris-hyle-ch-bert-belder-bbr-zibi-braniecki-zb-jamund-ferguson-jxf-istvan-sebestyen-is-keith-miller-km-myles-borins-mbs">Allen Wirfs-Brock (AWB), Waldemar Horwat (WH), Jordan Harband (JHD), Brian Terlson (BT), Michael Ficarra (MF), Adam Klein (AK), Chip Morningstar (CM), Dave Herman (DH), Kent C. Dodds (KCD), Kevin Gibbons (KG), Tim Disney (TD), Daniel Ehrenberg (DE), Shu-yu Guo (SYG), Michael Saboff (MS), James Kyle (JK), Franziska Hinkelmann (FHN), Anna Henningsen (AH), John Lenz (JLZ), Sebastian Markbåge (SM), Bradley Farias (BFS), Jeff Morrison (JM), Tyler Kellen (TKN), Gabriel Isenberg (GI), James Snell (JSL), Maggie Pint (MPT), Chris Hyle (CH), Bert Belder (BBR), Zibi Braniecki (ZB), Jamund Ferguson (JXF), István Sebestyén (IS), Keith Miller (KM), Myles Borins (MBS)</h2></a><a href="#looking-at-the-proposal-list"><h2 id="looking-at-the-proposal-list">Looking at the proposal list</h2></a><p>(Dave Herman)</p>
 <p>DH: Let's reexamine <a href="https://github.com/tc39/proposals">https://github.com/tc39/proposals</a> . Can we think about what proposals are still possible for the future?</p>
 <p>AWB: What things are likely to be there for 2018?</p>
 <p>DH: Well, with the train model, we try to not pay too much attention to the annual release, and let things land when they're ready.</p>
@@ -93,7 +93,7 @@
 <p><a href="https://gist.github.com/dherman/1c97dfb25179fa34a41b5fff040f9879">gist</a></p>
 <p>DH: There's a babel plugin for do expressions, I think it's pretty popular</p>
 <p>SM: We don't use it, but it's pretty popular with JSX</p>
-<p>BF: It's pretty popular</p>
+<p>BFS: It's pretty popular</p>
 <p>DH: So, the basic idea here is to allow more expression forms in the language, a more expression based style of programming, a nice thing FP brough tot the world. I'm not trying to get folks to drink the koolaid about it, I myself have stopped drinking it. Expression are nice though, because they plug together well. Philospohically, that's why they are good. Do expressions contain statements in expression context and evaluate to the completion value of the enclosed statements. They let you have locally scoped lexical variables. Prettier ternary operator. For JSX, if you want to use more expressive control flow when having something that becomes an expression. Long-run, it would be nice to have more statement forms with expression analogues, but do expressions bridge the gap. We should avoid refactoring hazards. No spec written up, but it should just be, &quot;return the value of evaluating |Body|&quot;.</p>
 <p>(review of linked repo)</p>
 <p>JFB: Out of this falls out something weird, like putting a return in there, it would be the same as doing an expression</p>
@@ -167,7 +167,7 @@
 <li>Does the completion value make sense here, or are its semantics too unintuitive (e.g., for function declarations, which have no completion value)</li>
 </ul></li>
 </ul>
-<a href="#13iid-seeking-stage-1-for-realms"><h2 id="13iid-seeking-stage-1-for-realms">13.ii.d Seeking Stage 1 for Realms</h2></a><p>(Dave Herman, co-championing with Mark Miller and Caridy Patino)</p>
+<a href="#13iid-seeking-stage-1-for-realms"><h2 id="13iid-seeking-stage-1-for-realms">13.ii.d Seeking Stage 1 for Realms</h2></a><p>(Dave Herman, co-championing with Mark Miller and Caridy Patiño)</p>
 <p><a href="https://github.com/tc39/proposal-realms">proposal</a>
 <a href="https://gist.github.com/dherman/66627aac764a9795dc3875e270f55918">presentation</a></p>
 <p>DH: Realms was sitting at Stage 0; I've been looking at it with Dean, and Chip, and others. Previously worked on it through ES2015, just the core JavaScript builtins, nothing else fancy. If you create a new Realm and instantiate an Array, it's a different one. Alternatively considered, this is a reflective reification of the ECMAScript realm concept. (going over presentation linked above)</p>
@@ -175,7 +175,7 @@
 <p>MM: That seems odd; Workers are tied to concurrency/processes</p>
 <p>DH: Well, people actually use workers this way, and run into the lack of synchronous communication.</p>
 <p>DH: Generally, this can provide security isolation, text editor plugins not affecting the state of the rest of the editor, or server-side rendering running in a fresh space that can be set up properly separately.</p>
-<p>BF: Another thing is using ServiceWorker to avoid redundant evaluation of module loading, and transpilation</p>
+<p>BFS: Another thing is using ServiceWorker to avoid redundant evaluation of module loading, and transpilation</p>
 <p>DH: When you have a realm object, you have super privileges over the realm: you can get its global, evalScript</p>
 <p>WH: What's on the realm's global object of a realm you created in your example via new Realm()?</p>
 <p>DH: By default, what's on it is the standard library of ECMA262--Array, parseInt, Function, not window, document--none of the web-specific stuff.</p>
@@ -203,10 +203,10 @@
 <p>DH: Nothing. init() is the last thing it does.</p>
 <p>WH: Why not just put the init() user code in the user constructor after it calls super()?</p>
 <p>DH: That wouldn't let you do your own default initialization. Going further, symbols could be a nice way to add some more hooks, e.g., direct and indirect eval, for live transpilation. One powerful use case is language polyfilling. Could also be used for security restrictions disallowing some language forms--eval is a potential hole, and hooking into eval can address it. Then, hooking into module loading could be part, but I don't have a concrete proposal.</p>
-<p>BF: Should the job queue have hooks?</p>
+<p>BFS: Should the job queue have hooks?</p>
 <p>MM: This is per-agent, not per-realm</p>
 <p>DE: There's a new V8 API for PromiseHooks</p>
-<p>BF: I want something from JavaScript</p>
+<p>BFS: I want something from JavaScript</p>
 <p>DH: This is a clear cross-cutting issue to look into</p>
 <p>AK: V8 PromiseHooks are for agents</p>
 <p>AWB: We could clarify in this document that Realms aren't agents, aren't workers, etc. Is the idea that the standard global object is <em>only</em> the standard, or could it include Section 16 embedder extensions?</p>
@@ -218,9 +218,9 @@
 <p>MM: To be positive, this API makes it much less hard than it could have been</p>
 <p>DH: But the fact that you can share objects gives a lot of power. Realms plus Proxy gives you a lot of power to enforce boundaries, but you still have to be careful when setting it up.</p>
 <p>AWB: You'd probably want to instantiate global.Proxy rather than Proxy/</p>
-<p>BF: is the global going to have Proxy hooks?</p>
+<p>BFS: is the global going to have Proxy hooks?</p>
 <p>DH: You could set a handler to the global object, yes, that's part of the design.</p>
-<p>BF: The global object has a proxy</p>
+<p>BFS: The global object has a proxy</p>
 <p>MM: the Window vs WindowProxy thing is actually orthogonal from EcmaScript Proxies. It is an unfortunate name coincidence. A so-called WindowProxy is not a Proxy.</p>
 <p>BT: I'm curious what your thoughts are on what it would take to do on-the-fly transpilation. Would this be a combination of the Loader's translate hook plus</p>
 <p>DH: I don't think the Loader API will be necessary on the web platform at all. I don't think I'm ready to announce that I'll stop work on the loader, but I think we can get all the benefits of the Loader with a radically simpler API. But today's not the day to talk it through.</p>
@@ -233,7 +233,7 @@
 <p>DH: All of these features are necessary to fully virtualize an execution environment, which is the goal of this proposal. Does that seem reasonable?</p>
 <p>DE: I don't understand what's required to virtualize an execution environment exactly.</p>
 <p>AWB: It's important to think through the cross-cutting concerns first.</p>
-<p>BF: This ties into the global module registry; I am not sure it's needed.</p>
+<p>BFS: This ties into the global module registry; I am not sure it's needed.</p>
 <p>DH: I think the registry could be in userspace</p>
 <p>AWB: The Realm API was previously in the ES2015 spec, and it was pulled out due to exactly this issue, interactions between module loading and realm hooks.</p>
 <a href="#conclusionresolution-13iid-seeking-stage-1-for-realms"><h4 id="conclusionresolution-13iid-seeking-stage-1-for-realms">Conclusion/Resolution</h4></a><ul>
@@ -293,12 +293,12 @@ privilege, right?</p>
 <p>MM: There are zero in the standard library</p>
 <p>AWB: Why wouldn't some new namespace object like a hypotehical system, why isn't that an isuse?</p>
 <p>MM: The reason is because thats the purpose for it to exist. Its not unexpected, it's not a problem for it to be differently privileged.</p>
-<p>BF: I'm curious, we have spoken about this before, about importing a powertool on my side, curren tscript identifier. Would this suffer the same problems as an import you could never mutated?</p>
+<p>BFS: I'm curious, we have spoken about this before, about importing a powertool on my side, curren tscript identifier. Would this suffer the same problems as an import you could never mutated?</p>
 <p>JHD: If you want to lock down a realm oyu need to change waht the global this eappears to be. you can't do that if you import unless you can virtualize it or change what the import is.</p>
 <p>MM: this goes back to the same issue we had with the stack thing. if we do have a way to have a way to have built-in imports such that it ... we can distinguish in an ergonomic way with priv imports and non-priv imports, global could go into a priv one.</p>
 <p>JHD: As long as you can virtualize it (or anything that needs it)</p>
 <p>DH: That requires not only that we have worked out all of our mechanisms for putting std libraries in or systematic changes to how imports work.</p>
-<p>BF: If there are well defined specifiers that shouldn't be true</p>
+<p>BFS: If there are well defined specifiers that shouldn't be true</p>
 <p>DH: Currently the spec says nothing about the string you import. This is changing modules to indicate some are special</p>
 <p>DE: There is an idea to make an object literal that is associated with the import, you could put a crypto hash of the file you're going to download, you can put other tokens there. if you want to put some more key values associated with an import there are other reasons why this would be good to have, e.g., for CORS or SRI</p>
 <p>DH: As the champion of modules t would be nice to be looped into that</p>
@@ -309,9 +309,9 @@ privilege, right?</p>
 <p>AK: The reason we're looking for a thing that sounds reasonable to us before we try to make it reasonable to you..</p>
 <p>DH: That's fine.</p>
 <p>DH: I apolgize, that's legit. We should not block this on path dependence</p>
-<p>BF: Domenic is only not in favor of System, he did not say veto it.</p>
+<p>BFS: Domenic is only not in favor of System, he did not say veto it.</p>
 <p>JHD: He's opposed but won't die on a hill for it</p>
-<p>BF: He says it is minor and he can talk about it later</p>
+<p>BFS: He says it is minor and he can talk about it later</p>
 <p>JHD: I am not seeking a stage change. I am looking for a direction from the committee with the hope in a meting or two we have two implementations that are web compat and we can move to stage 4.</p>
 <p>AWB: I think whack-a-mole option is the best. This case, a simple global name that doesn't conflict with current use would be the right thing. this is a special thing which has essentially in all implementations already been given a simple name. We can come up with a non-conflicting global name, that is preferrable to a namespace that will never be used again.</p>
 <p>DH: Afer I said let's use System, I changed my mind. Will we really create a namespace for something that will only have one thing?</p>
@@ -353,7 +353,7 @@ AK: That is three that exist</p>
 <p>DE: How about Util. No, joking.</p>
 <p>AK: I don't think the global object is internals, it's right there</p>
 <p>JHD: it's privileged enough to coordinate</p>
-<p>BF: Why can't I freeze it then?</p>
+<p>BFS: Why can't I freeze it then?</p>
 <p>AK: That's a separate question</p>
 <p>JHD: It is somewhat internal, it gives you direct access to things...</p>
 <p>AK: No, no, i can access everything on the global object without touching it</p>
@@ -457,9 +457,9 @@ AK: That is three that exist</p>
 <p>WH: I'm just saying that if we're required to have one it should be one of those but I don't think we should have one.</p>
 <p>J: I thinkw e have a consistent design without them</p>
 <p>AWB: Final though, if you could go with own you could use it for both purposes as the sigil. It's private and otherwise a rpoperty.</p>
-<p>BF: I'm hesistate because we have all of these getOWn properties.</p>
+<p>BFS: I'm hesistate because we have all of these getOWn properties.</p>
 <p>MM/AWB: It's the same meeting</p>
-<p>BF: it's not about privacy</p>
+<p>BFS: it's not about privacy</p>
 <p>DE: the own is not about private properties</p>
 <p>AWB: <code>own</code> means it goes on the instance without the sigil it's a property, with it, it's a field.</p>
 <p>MM: I did misspeak before. I was confusing the concept of being per-instance vs the concept of being an own property. Private state is literally not an own property but it is a per-instance property. I think the way people understand own is the major intuition is that it is directly on that instance as opposed to being something that is inherited. I still think own is plausible and it actually fits will with the story for why we introduced static. The keyword is distinguishing which object are you declaring something about. It also fits with the idea that static could be equally orthogonal. The idea that the sigil is orthogonal to the keyword, where the sigil indicates public vs private and the keyword indicates the place.</p>
@@ -570,12 +570,12 @@ AK: That is three that exist</p>
 <p>MM: I'm leaning towards own</p>
 <p>BT: I like own</p>
 <p>MPT: All I was going to say, not that I don't know the difference, can someone write why the average developer would want define over set? Wouldn't people expect setters to run, based on the fact that most people don't really get the JS object model and the other operations that you might do?</p>
-<p>BF: I can speak for Node core, that we don't want lots of interception points for setters to be called in places like this</p>
+<p>BFS: I can speak for Node core, that we don't want lots of interception points for setters to be called in places like this</p>
 <p>MPT: not for people who know a ton about JS</p>
 <p>DH: I don't think it's about an understanding of th eoperations. Its about what I'm thinking about when I'm declaring a class or a field, i'm declaring something on this class, i'm not thinking about the inerhitance hierarchy. It would be really suprising if something someone else code changed what I was trying ot set.</p>
 <p>MPT: That's all that matters to the average developer?</p>
 <p>AK: this is what Jeff was saying...</p>
-<p>BF: We don't really know what the average developer expects. This is not something we should be stating. This isn't about intuition. This is really about what are the advantages of these things. I think it should be define bceause basically working on node core, people do things do their prototypes and it breaks internals because node hasn't fully harded them. It does things in very suprising ways either to the developer or people who are.</p>
+<p>BFS: We don't really know what the average developer expects. This is not something we should be stating. This isn't about intuition. This is really about what are the advantages of these things. I think it should be define bceause basically working on node core, people do things do their prototypes and it breaks internals because node hasn't fully harded them. It does things in very suprising ways either to the developer or people who are.</p>
 <p>MPT: At the end of the day we're asking if people are worried about a setter climbing the inheritance chain.</p>
 <p>DE: In this committee we have to make small decisions all the time about which semantics are better, as experts</p>
 <p>MPT: Having heard about all of this, go ahead and let it be Define, you have good implementation details. I don't think this whole own := keyword helps the average developer does not care about the difference between those two things. They have to go figure out what that new = is in JS. Just let it go.</p>
@@ -585,7 +585,7 @@ AK: That is three that exist</p>
 <p>(Topic: reflection of private)</p>
 <p>DE: Should private state be reflected? Our current view is &quot;no&quot;, but you can define and use a decorator that will allow reflection. Brendan thinks perhaps we should swap them.</p>
 <p>WH: No, we should not swap them. Hard private should be the default. I don't want to have to write <code>IReallyMeanPrivate #privateFoo</code> to get a hard private field.</p>
-<p>BF: Node wants hard private.</p>
+<p>BFS: Node wants hard private.</p>
 <p>(Class initialization evaluation order)</p>
 <p>DE: Next question, when should static initializers run--top-to-bottom, left-to-right, or afterwards as discussed in Munich?</p>
 <p>DH: We need to deal with how this will affect decorators.</p>

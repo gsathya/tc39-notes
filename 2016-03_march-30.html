@@ -8,8 +8,8 @@
 
 <title>March 30, 2016 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#march-30-2016-meeting-notes"><h1 id="march-30-2016-meeting-notes">March 30, 2016 Meeting Notes</h1></a><p>Dave Herman (DH), Michael Ficarra (MF), Jordan Harband (JHD), Adam Klein (AK), Mark Miller (MM), Brian Terlson (BT), Domenic Denicola (DD), Brad Nelson (BNN), JF Bastien (JFB), Joe Lencioni (JLI), Sebastian Markbage (SM), Jeff Morrison (JM), Kevin Smith (KS), Jafar Husain (JH), Lars Hansen (LHN), Saam Barati (SBI), Keith Miller (KM), Michael Saboff (MS), Eric Ferraiuolo (EF), Eric Faust (FST), Chip Morningstar (CM), Dean Tribble (DT), Shu-yu Guo (SYG), Tim Disney (TD), Waldemar Horwat (WH), Bert Belder (BBR), Peter Jensen (PJ), Daniel Ehrenberg (DE), Caridy Patiño (CP), Diego Ferreiro Val (DFV), Jean Fraucois Paradis (JFP), Shelby Hubick (SHK), Leo Balter (LBR), Misko Hevery (MHY), Allen Wirfs-Brock (AWB), Kevin Gibbons (KG)</p>
-<a href="#length-argument-normalization-for-typedarrays-arraybuffer-and-dataview-constructors"><h2 id="length-argument-normalization-for-typedarrays-arraybuffer-and-dataview-constructors">Length argument normalization for TypedArrays, ArrayBuffer and DataView constructors</h2></a><p>slide presentation by Leo Balter</p>
+<a href="#march-30-2016-meeting-notes"><h1 id="march-30-2016-meeting-notes">March 30, 2016 Meeting Notes</h1></a><hr>
+<a href="#dave-herman-dh-michael-ficarra-mf-jordan-harband-jhd-adam-klein-ak-mark-s-miller-mm-brian-terlson-bt-domenic-denicola-dd-brad-nelson-bnn-jf-bastien-jfb-joe-lencioni-jli-sebastian-markbage-sm-jeff-morrison-jm-kevin-smith-ks-jafar-husain-jh-lars-hansen-lhn-saam-barati-sbi-keith-miller-km-michael-saboff-ms-eric-ferraiuolo-ef-eric-faust-eft-chip-morningstar-cm-dean-tribble-dt-shu-yu-guo-syg-tim-disney-td-waldemar-horwat-wh-bert-belder-bbr-peter-jensen-pj-daniel-ehrenberg-de-caridy-patino-cp-diego-ferreiro-val-dfv-jean-francis-paradis-jfp-shelby-hubick-shk-leo-balter-lbr-misko-hevery-mhy-allen-wirfs-brock-awb-kevin-gibbons-kg"><h2 id="dave-herman-dh-michael-ficarra-mf-jordan-harband-jhd-adam-klein-ak-mark-s-miller-mm-brian-terlson-bt-domenic-denicola-dd-brad-nelson-bnn-jf-bastien-jfb-joe-lencioni-jli-sebastian-markbage-sm-jeff-morrison-jm-kevin-smith-ks-jafar-husain-jh-lars-hansen-lhn-saam-barati-sbi-keith-miller-km-michael-saboff-ms-eric-ferraiuolo-ef-eric-faust-eft-chip-morningstar-cm-dean-tribble-dt-shu-yu-guo-syg-tim-disney-td-waldemar-horwat-wh-bert-belder-bbr-peter-jensen-pj-daniel-ehrenberg-de-caridy-patino-cp-diego-ferreiro-val-dfv-jean-francis-paradis-jfp-shelby-hubick-shk-leo-balter-lbr-misko-hevery-mhy-allen-wirfs-brock-awb-kevin-gibbons-kg">Dave Herman (DH), Michael Ficarra (MF), Jordan Harband (JHD), Adam Klein (AK), Mark S. Miller (MM), Brian Terlson (BT), Domenic Denicola (DD), Brad Nelson (BNN), JF Bastien (JFB), Joe Lencioni (JLI), Sebastian Markbåge (SM), Jeff Morrison (JM), Kevin Smith (KS), Jafar Husain (JH), Lars Hansen (LHN), Saam Barati (SBI), Keith Miller (KM), Michael Saboff (MS), Eric Ferraiuolo (EF), Eric Faust (EFT), Chip Morningstar (CM), Dean Tribble (DT), Shu-yu Guo (SYG), Tim Disney (TD), Waldemar Horwat (WH), Bert Belder (BBR), Peter Jensen (PJ), Daniel Ehrenberg (DE), Caridy Patiño (CP), Diego Ferreiro Val (DFV), Jean-Francis Paradis (JFP), Shelby Hubick (SHK), Leo Balter (LBR), Miško Hevery (MHY), Allen Wirfs-Brock (AWB), Kevin Gibbons (KG)</h2></a><a href="#length-argument-normalization-for-typedarrays-arraybuffer-and-dataview-constructors"><h2 id="length-argument-normalization-for-typedarrays-arraybuffer-and-dataview-constructors">Length argument normalization for TypedArrays, ArrayBuffer and DataView constructors</h2></a><p>slide presentation by Leo Balter</p>
 <p>AWB: Explained the background for the weirdness here. Sources of odd and inconsistent type array index and length handling spec behavior in ES6: Kronos spec, what browsers actually do, input from implementors, legacy compatibility.</p>
 <p>DD: Current implementation status seems like the best guide here</p>
 <p>DE: But there might be things we could tighten down, and things we can't (like requiring integer indices)</p>
@@ -146,7 +146,7 @@
 <p>AWB: whether they're incrementally added or done in one shot</p>
 <p>DH: but once the super() protocol has completed, it can't change. So neither of these is a &quot;static&quot; shape design. The only question is, at what point in the dynamic class initialization protocol, have we fixed the shape. But in either case you're providing a very strong invariant, that I would expect the JITs to be quite satisfied with. The JITs are already expecting things to be incrementally initialized.</p>
 <p>WH: I hope that it's fairly trivial for a JIT to figure out that it's statically shaped for classes that do not inherit from anything else. Now if a class inherits from something else, then the JIT would have to be able to figure out what it's inheriting from at compile time... how hard would that be?...</p>
-<p>FST: which it can't... For the multi-level case, it doesn't matter from an implementer's perspective at all, whether it's done all at once or incrementally.</p>
+<p>EFT: which it can't... For the multi-level case, it doesn't matter from an implementer's perspective at all, whether it's done all at once or incrementally.</p>
 <p>WH: It's essential that the non-inheriting class case be statically analyzable and efficient. Don't worry as much about inheriting classes.</p>
 <p>AWB: can we agree that the scoping rules and the shadowing rules are an orthogonal thing?</p>
 <p>(General confusion)</p>
@@ -156,10 +156,10 @@
 <p>DH: Sure. Or just by calling methods, that could live on the subclass, which are looking for private fields that don't exist. However that is totally consistent with the kidn of bugs that have existed since time immemorial in a dynamic language like JavaScript</p>
 <p>AWB: these are all error conditions that have to be checked for, conceptually on every access. They really amount to the same thing.</p>
 <p>DH: I want to make a claim and I want the JIT implementers to tell me whether my claim is accurate. Optimizations based on object shape are extremely dynamic, and likely to remain extremely dynamic, and are not likely to be based on static inspection of the class hiererachy, in a dynamic language like JavaScript, and this will remain true. Especially since the set is determiend so early in the initialization process of the object, that how much static information JITs want to use will be roughly zero.</p>
-<p>FST: I can tell you that the more dynamic information you give me the happier I'll be. If you give me an object literal, we can just use the property names to pre-initialize all at once.</p>
+<p>EFT: I can tell you that the more dynamic information you give me the happier I'll be. If you give me an object literal, we can just use the property names to pre-initialize all at once.</p>
 <p>DH: let me give you an example... class A extends B class B extends C class C extends D, and you can see all of the class declarations and all of the privates declared in them. Are you likely to build optimizations that take advantage of that?</p>
 <p>KM: we wouldn't allocate the shape, but we'd give you give a bunch of inline shape.</p>
-<p>FST: we'd love to do that too... but how would you evaluate extends clauses? They're arbitrary expressions.</p>
+<p>EFT: we'd love to do that too... but how would you evaluate extends clauses? They're arbitrary expressions.</p>
 <p>KM: we'd attach the number of things we'd do to the function object, and as you go up the chain you'd add more information</p>
 <p>(Lots of cross-talking.)</p>
 <p>DE: there's three different times: parsing time, class instantiation time, and when you're calling the constructor. The static shape gives you the nubmer of slots at class instantiation time</p>
@@ -174,19 +174,19 @@
 <p>MM: there's one crucial difference, which is that this can be done without A's cooperation. Whereas it's perfectly fine to say that a class is explicitly vulnerable to a superclass which it explicitly decided to extend. This however allows you to construct something with an A brand, and it's not in any sense A's fault.</p>
 <p>DH: I believe there are enough edge cases number N to sell me, but I am totally not sold by edge case number 2. Reflect.construct allows you to disobey domain-specific invariants of a class, but that's not surprising.</p>
 <p>MM: the fact that you can forge brands</p>
-<p>FST: isn't that explicitly what Reflect.construct does?</p>
+<p>EFT: isn't that explicitly what Reflect.construct does?</p>
 <p>MM: part of the economy of this mechanism is that if you try to access the slot on an object without it, it throws</p>
 <p>DH: I've completely flip-flopped. Once of the important use cases of branding is to control the creation of your type, so you can disallow the creation of objects that don't go through your construct path. There's no way you can fix this.</p>
-<p>FST: users are just getting screwed by their own ignorance!</p>
+<p>EFT: users are just getting screwed by their own ignorance!</p>
 <p>KS: we're trying to create an abstraction that you can pass off to someone you don't trust</p>
 <p>DH: there's a sliding scale of maliciousness here, which is important to keep in mind. The worst case, which is maybe a minority case but is the worst minority case, is true malicious actors you can't trust, e.g. embedded ads. There are also important use cases where they have the flavor of adverserary; what you're dealing with is you're implementing jQuery, and you have 17 million users, and you want to provide an abstraction where some subset of those 17 million users won't be able to fix things except by reaching under the hood and mess with things. That now ****s you as the creator of jQuery because you have users messing with your abstraction and preventing you from changing things going forward. So there are cases where there are people who are not mustache-twirling villains---not idiots, even---but have opposed incentives. The point being, there are multiple valid use cases in JavaScript for airtight abstractions. It's easy to caricature them.</p>
 <p>AWB: this is simply saying that initializing things to undefined is not sufficient</p>
 <p>KS: remember I am not proposing this. But if you wanted to fix it, then you'd have to do something like instead of setting them to undefined, you set them to some TDZ thing.</p>
 <p>AWB: and when you access an arbitrary object with one of these slots, you have to verify that it has one of these slots, you can't just do in the general case a &quot;slot 14 get its value&quot; because slot 14 may not be...</p>
-<p>FST: any NewTarget-based abstraction is at odds with this attack vector.</p>
+<p>EFT: any NewTarget-based abstraction is at odds with this attack vector.</p>
 <p>DD: agreed</p>
 <p>AWB: my solution to this is the TDZ thing</p>
-<p>FST: great! I like that solution</p>
+<p>EFT: great! I like that solution</p>
 <p>AWB: more likely than not, people can combine the check</p>
 <p>DE: I think one of the big benefits of things being initialized to undefined is you don't get an explosion of TDZ. Implementations would have two options: dynamically check on every access, or, make it part of the hidden class. The latter just gets us back to the same bad state we're already at for properties. If we encode in the hidden class, we get this same hazard, which I'm happy Kevin's proposal avoids.</p>
 <p>WH: TDZ you can do as efficiently as the weak map thing. The only difference I see is that TDZ requires going through Reflect.construct before it also gets blessed by the constructor. I don't know if there's a way to get blessed by the constructor without going through the construction process. Otherwise the proposals seem to be equivalent... Actually, here's the one example I can think of where the TDZ and weak map proposals differ: The superclass constructor returns an unrelated object {} instead of this. The subclass constructor tries to create its own private subclass slots.</p>
@@ -194,9 +194,9 @@
 <p>KS: given that custom elements use this pattern, we'll just have to tell people you can't refactor from <code>this._x</code> to <code>this.#x</code>.</p>
 <p>KS: (moves on to edge case 3)</p>
 <p>DH: this doesn't seem legit either. The relationship you're looking for is not the prototype chain, but the actual thing you extended from.</p>
-<p>FST: static shape is something you wish to guarantee for code that wishes to be well-behaved, and wishes to run fast. This is not an example of model behavior.</p>
+<p>EFT: static shape is something you wish to guarantee for code that wishes to be well-behaved, and wishes to run fast. This is not an example of model behavior.</p>
 <p>MM: with regard to what you just said, the standard JIT approach is entirely compatible with that goal and with Kevin's proposal. When something causes a violation of your assumptions, you fall back.</p>
-<p>FST: and that's my reaction here is that we'll just fall back and not give you the static thing we calculated</p>
+<p>EFT: and that's my reaction here is that we'll just fall back and not give you the static thing we calculated</p>
 <p>KS: Right. Whereas instance slots proposal falls over in this case.</p>
 <p>AWB: there's an easy fix... disallow mutable prototypes if private slots are present</p>
 <p>DH: that sounds fishy to me</p>
@@ -207,21 +207,21 @@
 <p>AWB: well here's why non-local changes might or might not be reasonable. If you think of these slots as being a sort of extended object structure that we didn't have before, then you might well say that that these are different types of objects.</p>
 <p>DH: that's exactly counter to the spirit of 1JS. I don't want to have two types of objects with opt-in.</p>
 <p>AWB: we already have two types of constructors</p>
-<p>FST: I think classes have already missed that boat</p>
+<p>EFT: I think classes have already missed that boat</p>
 <p>DH: I still think edge case 1 was end of story.</p>
 <p>AWB: I missed the TKO aspect of edge case 1</p>
 <p>(Discussion on how to call the different ways of setting properties. Settle on &quot;class determined&quot; vs. &quot;constructor determined.&quot;)</p>
 <p>DH: so I think edge case 1 is TKO for class determined</p>
 <p>CM: TKO means you just barely won.</p>
 <p>DH: oh, then just KO then. Why is edge case number 1 a KO? It's because, you are actually in the semantics depending on knowing what the set of slots is, and that set of slots is trying to actually make a prediction, about what's going to happen by the end of construction. And it's an inaccurate prediction because of return override. Return override we discovered is not an edge case; it's actually fundamental. It says that constructors have arbitrary programmatic control over what type of object they are going to produce. It is the right and responsibility of the constructor to determine what set of slots. You cannot deterministically predict that from knowing the class extends relationship. The class determined version is making an inaccurate prediction. Whereas Kevin's proposal (constructor determined) is only fixing the slots after the constructor has actually been given its state.</p>
-<p>FST: also, the optimization thing is not a problem, sorry.</p>
+<p>EFT: also, the optimization thing is not a problem, sorry.</p>
 <p>KS: (moves on to const classes slide) We can explore const classes as an opt-in alternative for achieving static state. It's much cleaner to keep the class-determined static shape separate from privacy.</p>
 <p>AWB: if the return override returns a non-extensible object, can subclasses still add slots to it?</p>
 <p>KS: yes</p>
 <p>MM: and that's another thing that's very natural if you think of this as weak maps.</p>
 <p>WH: what happens if the superclass constructor returns an object that is already an instance of the subclass?</p>
 <p>KS: if it already has the slot that you're trying to add to it, it will throw.</p>
-<p>FST: throw or shadow, it doesn't matter much.</p>
+<p>EFT: throw or shadow, it doesn't matter much.</p>
 <p>AWB: and if it returns a proxy? You can add private slots to a proxy?</p>
 <p>KS: yes. It falls out of using weak maps to describe it.</p>
 <p>MM: all you're doing is using the proxy's identity</p>
@@ -230,7 +230,7 @@
 <p>KS: (moves on to &quot;other features: shorthands&quot; slide) I haven't included this shorthand in the spec text, but there's no real problem. But there's a question of whether the shorthand would work inside things that have a different <code>this</code> value.</p>
 <p>DH: is it syntactic sugar for <code>this.</code>?</p>
 <p>KS: that's my intuition...</p>
-<p>FST: so that's a runtime error</p>
+<p>EFT: so that's a runtime error</p>
 <p>KS: correct</p>
 <p>MM: Dean and I argued this and I'm convinced it should be syntactic sugar for <code>this.</code></p>
 <p>DH: I think this could be really critical in terms of adoption. Someone's going to accuse me of being a paternalistic, but I'm not being paternalistic here. A programming model where you default to private is just nicer. Allowing people to drop the <code>this.</code> is a powerful incentive</p>
@@ -377,9 +377,9 @@
 <p>AK: Chrome is moving its cross-origin iframes into other processes to get stronger isolation and attack this large surface issue.</p>
 <p>EF: As an implementor, I'm very desperately worried about sharing any object that is touchable by two non-trusting parties. Even if there is a theoretical argument, the surface is large.</p>
 <p>DH: Sounds like that is the concern. Specifically the idea is sharing an object across all realms.</p>
-<p>FST: At the moment, if you try to touch something from a different origin, it's opaquely prohibited. Here, it's transitively immutable. If everything was written perfectly, then immutable is immutable, and we win. But otherwise, we have an information leak, and that is scary.</p>
+<p>EFT: At the moment, if you try to touch something from a different origin, it's opaquely prohibited. Here, it's transitively immutable. If everything was written perfectly, then immutable is immutable, and we win. But otherwise, we have an information leak, and that is scary.</p>
 <p>CM: We're assuming that a particular mechanism is implemented to get these guarantees. You're already relying on your compartment separation guarantees. Why is this any different from that?</p>
-<p>FST: I don't want to give away the banking password of my users, and this increases the surface significantly.</p>
+<p>EFT: I don't want to give away the banking password of my users, and this increases the surface significantly.</p>
 <p>DH: I understand much better now. It's not a big API. I was shocked at the resistance, but I had never thought that it would be a shared singleton global. So it seems better to make separate ones.</p>
 <p>DE: But if that's the case, why is it safe to share these at all, and why should we trust the security model? MM has made many fixes to ES, and JITs are a very large surface area, as well as the standard library. Are we confident that this will fix things? We have a much tighter boundary with memory,  a much smaller surface</p>
 <p><missed a bunch></p>
@@ -397,7 +397,7 @@
 <p>AK: So you can see how we're concerned about how this would be considered secure</p>
 <p>MM: He could use this mechanism</p>
 <p>DH: Seems like this localizes the security needed</p>
-<p>FST: There's no way that I could convince Boris and Bobby that one shared realm is security.</p>
+<p>EFT: There's no way that I could convince Boris and Bobby that one shared realm is security.</p>
 <p>DH: Sounds like Chrome is saying that putting this under security requirements is prohibitive</p>
 <p>AK: not sure I want to make a statement that strong but we need to consider that when talking about advancing this proposal</p>
 <p>DH: people are already doing this today and if we can localize that to a single API</p>
@@ -406,9 +406,9 @@
 <p>DE: not trashing the world sounds like a property that you want to be rigorously enforced</p>
 <p>CM: if you can't guarantee us memory safety and object encapsulation then we're fucked anyway</p>
 <p>DH: we already depend on immutable objects being immutable</p>
-<p>FST: I'm telling you I work on a JIT for a living</p>
+<p>EFT: I'm telling you I work on a JIT for a living</p>
 <p>DH: people have security needs and they depend on things like immutability and when the JIT breaks immutability it causes problems for everyone. If we have a relatively small API that depends on these properties and localizes the security needs people have, people will gravitate toward it and stop depending on the larger issue.</p>
-<p>FST: the surface area is small, the pressure is large</p>
+<p>EFT: the surface area is small, the pressure is large</p>
 <p>DT: the structure I have to go through to do this with iframes is $20K for a pen-tester because it's complicated and my developers could screw it up. That happens all the time across the web.</p>
 <p>SY: if the web security model is not sufficient.... (interrupted)</p>
 <p>DH: are you asking why can't we do this today with iframe sandbox? The reason is performance. An iframe brings in a whole bunch of machinery and if all you're doing is running code you don't need all those mechanisms.</p>

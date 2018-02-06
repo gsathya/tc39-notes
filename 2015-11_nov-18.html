@@ -6,10 +6,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
 
-<title>November 18th 2015 Meeting Notes</title>
+<title>November 18, 2015 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#november-18th-2015-meeting-notes"><h1 id="november-18th-2015-meeting-notes">November 18th 2015 Meeting Notes</h1></a><p>Jafar Husain (JH), Eric Farriauolo (EF), Caridy Patino (CP), Adam Klein (AK), Michael Ficarra (MF), Peter Jensen (PJ), Domenic Denicola (DD), Jordan Harband (JHD), Chip Morningstar (CM), Brian Terlson (BT), John Neumann  (JN), Dave Herman (DH), Brendan Eich (BE), Yehuda Katz (YK), Jeff Morrison (JM), Lee Byron (LB), Daniel Ehrenberg (DE), Lars Hansen (LHN), Nagy Hostafa (NH), Michael Saboff (MS), John Buchanan (JB), Stefan Penner (SP), Waldemar Horwat (WH), Mark Miller (MM), Paul Leathers (PL), Georg Neis (GN), Sebastian Markbage (SM)</p>
-<a href="#regexp-buffet-bt"><h2 id="regexp-buffet-bt">RegExp Buffet (BT)</h2></a><p>something about composed RegExp</p>
+<a href="#november-18-2015-meeting-notes"><h1 id="november-18-2015-meeting-notes">November 18, 2015 Meeting Notes</h1></a><hr>
+<a href="#jafar-husain-jh-eric-ferraiuolo-ef-caridy-patino-cp-adam-klein-ak-michael-ficarra-mf-peter-jensen-pj-domenic-denicola-dd-jordan-harband-jhd-chip-morningstar-cm-brian-terlson-bt-john-neumann-jn-dave-herman-dh-brendan-eich-be-yehuda-katz-yk-jeff-morrison-jm-lee-byron-lb-daniel-ehrenberg-de-lars-hansen-lhn-nagy-hostafa-nh-michael-saboff-ms-john-buchanan-jb-stefan-penner-sp-waldemar-horwat-wh-mark-s-miller-mm-paul-leathers-pl-georg-neis-gn-sebastian-markbage-sm"><h2 id="jafar-husain-jh-eric-ferraiuolo-ef-caridy-patino-cp-adam-klein-ak-michael-ficarra-mf-peter-jensen-pj-domenic-denicola-dd-jordan-harband-jhd-chip-morningstar-cm-brian-terlson-bt-john-neumann-jn-dave-herman-dh-brendan-eich-be-yehuda-katz-yk-jeff-morrison-jm-lee-byron-lb-daniel-ehrenberg-de-lars-hansen-lhn-nagy-hostafa-nh-michael-saboff-ms-john-buchanan-jb-stefan-penner-sp-waldemar-horwat-wh-mark-s-miller-mm-paul-leathers-pl-georg-neis-gn-sebastian-markbage-sm">Jafar Husain (JH), Eric Ferraiuolo (EF), Caridy Patiño (CP), Adam Klein (AK), Michael Ficarra (MF), Peter Jensen (PJ), Domenic Denicola (DD), Jordan Harband (JHD), Chip Morningstar (CM), Brian Terlson (BT), John Neumann (JN), Dave Herman (DH), Brendan Eich (BE), Yehuda Katz (YK), Jeff Morrison (JM), Lee Byron (LB), Daniel Ehrenberg (DE), Lars Hansen (LHN), Nagy Hostafa (NH), Michael Saboff (MS), John Buchanan (JB), Stefan Penner (SP), Waldemar Horwat (WH), Mark S. Miller (MM), Paul Leathers (PL), Georg Neis (GN), Sebastian Markbåge (SM)</h2></a><a href="#regexp-buffet"><h2 id="regexp-buffet">RegExp Buffet</h2></a><p>(Brian Terlson)</p>
+<p>something about composed RegExp</p>
 <p>YK: composing regexp does not have a algebraic decomposition</p>
 <p>DD: composing multiple interpolated strings for RegExp</p>
 <p>WH: What?</p>
@@ -302,7 +303,8 @@ would then turn on the i flag for the def in the outer pattern, which is bad.</p
 <a href="#conclusionresolution-awb-summarizes-some-oo-concepts"><h4 id="conclusionresolution-awb-summarizes-some-oo-concepts">Conclusion/Resolution</h4></a><ul>
 <li>%TypedArray% constructor is directly called rather than having a super constructor and a proto chain walk</li>
 </ul>
-<a href="#improving-consistency-of-species-kevin-smith"><h3 id="improving-consistency-of-species-kevin-smith">Improving consistency of @@species (Kevin Smith)</h3></a><p>KS: on map and set, they are not used in the spec themselves, But subclasses should be able to override</p>
+<a href="#improving-consistency-of-species"><h2 id="improving-consistency-of-species">Improving consistency of @@species</h2></a><p>(Kevin Smith)</p>
+<p>KS: on map and set, they are not used in the spec themselves, But subclasses should be able to override</p>
 <p>KS: usage patterns, instance methods, that want to return related subclass.</p>
 <p>KS: Promise.all and Promise.race are the only ones that use this</p>
 <p>YK: race/all are combinators Array.from is a custom constructors:</p>
@@ -367,12 +369,12 @@ would then turn on the i flag for the def in the outer pattern, which is bad.</p
 <li>investigate <code>Function.prototype['@@species']</code></li>
 <li>Map and Set shouldn’t have it, we should add it on-demand, and do no carry it forward.</li>
 </ol>
-<a href="#conclusionresolution-awb-summarizes-some-oo-concepts"><h4 id="conclusionresolution-awb-summarizes-some-oo-concepts">Conclusion/Resolution</h4></a><ul>
+<a href="#conclusionresolution-improving-consistency-of-species"><h4 id="conclusionresolution-improving-consistency-of-species">Conclusion/Resolution</h4></a><ul>
 <li>remove <code>@@species</code> handing from <code>Promise.all</code>/<code>Promise.race</code></li>
 <li>no decisions made on other <code>@@species</code> handling</li>
 <li>investigate <code>Function.prototype[Symbol.species]</code></li>
 </ul>
-<p>BT: discussion on various GH threads, this should be easy.</p>
+<a href="#promise-rejection-hooks"><h2 id="promise-rejection-hooks">Promise Rejection Hooks</h2></a><p>BT: discussion on various GH threads, this should be easy.</p>
 <p>BT: the problem is that, proxy enumerate trap iterator is allowed to return w/e it wants.</p>
 <p>YK: symbols are can be enumerable but not as for in key</p>
 <p>BT: currently it can return anything</p>
@@ -407,9 +409,10 @@ would then turn on the i flag for the def in the outer pattern, which is bad.</p
 <p>BT: should likely be an editor discretion. With github, changes are public and watchable.</p>
 <p>YK: a small process may solve, for example. The editor of a given group tags changes as potentially relevant.</p>
 <p>BT: bi-weekly changelog, with highlights called out. Grouped sections, to draw attention to various interested parties.</p>
-<a href="#conclusionresolution-awb-summarizes-some-oo-concepts"><h4 id="conclusionresolution-awb-summarizes-some-oo-concepts">Conclusion/Resolution</h4></a><ul>
+<a href="#conclusionresolution-promise-rejection-hooks"><h4 id="conclusionresolution-promise-rejection-hooks">Conclusion/Resolution</h4></a><ul>
 <li>promise rejection hooks are in</li>
 <li>editor may apply own discretion on further “implementation hook” proposals</li>
+<li></li>
 </ul>
 <a href="#proposal-repos-and-where-they-live--editor-update"><h2 id="proposal-repos-and-where-they-live--editor-update">Proposal Repos, and where they live + editor update</h2></a><p>BT: for people not watching the spec, let me show you what we have.</p>
 <p>BT: we have a permanently bleeding edge spec at <a href="http://tc39.github.io/ecma262/">http://tc39.github.io/ecma262/</a></p>
@@ -445,7 +448,8 @@ would then turn on the i flag for the def in the outer pattern, which is bad.</p
 <a href="#conclusionresolution-proposal-repos-and-where-they-live--editor-update"><h4 id="conclusionresolution-proposal-repos-and-where-they-live--editor-update">Conclusion/Resolution</h4></a><ul>
 <li>any stage 1 or above proposal repos must be transferred to the TC39 org, as a stage 1 entry requirement</li>
 </ul>
-<a href="#jefmo-trailing-commas"><h2 id="jefmo-trailing-commas">JEFMO: trailing commas</h2></a><p>JM: stage 3?</p>
+<a href="#trailing-commas-in-function-parameter-lists"><h2 id="trailing-commas-in-function-parameter-lists">Trailing commas in function parameter lists</h2></a><p>(Jeff Morrison)</p>
+<p>JM: stage 3?</p>
 <p>AK: does this cause problems with arrow functions</p>
 <p>BT: it may increase the complexity of parsing</p>
 <p>BT: i believe the spider monkey folks had thoughts, but I don’t know why</p>
@@ -457,7 +461,7 @@ would then turn on the i flag for the def in the outer pattern, which is bad.</p
 <p>JM: ok I will add arrows (pending stage 3)</p>
 <p>DD: stage 3 tomorrow?</p>
 <p>JM: yes</p>
-<a href="#conclusionresolution-jefmo-trailing-commas"><h4 id="conclusionresolution-jefmo-trailing-commas">Conclusion/Resolution</h4></a><ul>
+<a href="#conclusionresolution-trailing-commas-in-function-parameter-lists"><h4 id="conclusionresolution-trailing-commas-in-function-parameter-lists">Conclusion/Resolution</h4></a><ul>
 <li>hopefully stage 3 tomorrow after arrows are added</li>
 </ul>
 <a href="#proxy-enumerate-ocerconstrains-implementations-ak"><h2 id="proxy-enumerate-ocerconstrains-implementations-ak">Proxy [[Enumerate]] ocerconstrains implementations (AK)</h2></a><p><a href="https://github.com/tc39/ecma262/issues/161">https://github.com/tc39/ecma262/issues/161</a></p>
@@ -491,7 +495,9 @@ would then turn on the i flag for the def in the outer pattern, which is bad.</p
 </ul>
 <a href="#functionsent-bt"><h2 id="functionsent-bt">Function.sent (BT)</h2></a><p>BT: its in babel</p>
 <p>DE: did you add internal slots</p>
-<a href="#conclusionresolution-functionsent-bt"><h4 id="conclusionresolution-functionsent-bt">Conclusion/Resolution</h4></a><p>deferred till tomorrow…</p>
+<a href="#conclusionresolution-functionsent-bt"><h4 id="conclusionresolution-functionsent-bt">Conclusion/Resolution</h4></a><ul>
+<li>deferred till tomorrow…</li>
+</ul>
 <a href="#async-await"><h3 id="async-await">Async Await</h3></a><p>BT: I did not finish the tests, but noticed some troubling things. IE ships AsyncFunction, I believe we should actually not do this</p>
 <p>SP: im curious why</p>
 <p>BT: unsure, MM?</p>

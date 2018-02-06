@@ -8,7 +8,9 @@
 
 <title>July 26, 2017 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#july-26-2017-meeting-notes"><h1 id="july-26-2017-meeting-notes">July 26, 2017 Meeting Notes</h1></a><p>Adam Klein (AK), Allen Wirfs-Brock (AWB), Andrew Burgese (ABE),Andrew Paprocki (API), Ben Newman (BN), Benoit Girard (BGD), Bradley Farias (BF), Brendan Eich (BE), Brian Terlson (BT), Caridy Patiño (CP), Chip Morningstar (CM), Chris Hyle (CHE), Claude Pache (CLP), Dave Herman (DH), David Teller (DTL), David Turissini (DTI), Dean Tribble (DT), Diego Ferreiro Val (DFV), Domenic Denicola (DD), Gabriel Isenberg (GIG), Istvan Sebestyen (IS), Jeff Morrison (JM), John-David Dalton (JDD), Jonathan Keslin (JKN), Jordan Harband (JHD), Jorge Lopez (JLZ), Kent C. Dodds (KCD), Kevin Gibbons (KG), Kevin Venkiteswaran (KVN), Leo Balter (LBR), Maggie Pint (MPT), Mariko Kosaka (MKA), Mark Miller (MM), Michael Ficarra (MF), Michael Saboff (MS), Nathan Hammond (NHD), Patrick Soquet (PST), Peter Hoddie (PHE), Pierre-Marie Dartus (PMD), Rex Jaeschke (RJE), Robert Palmer (RPR), Ron Buckton (RBN), Sam Goto (SGO), Sebastian Markbage (SM), Shu-yu Guo (SYG), Vladan Djeric (VDC), Waldemar Horwat (WH), Yehuda Katz (YK),</p>
+<a href="#july-26-2017-meeting-notes"><h1 id="july-26-2017-meeting-notes">July 26, 2017 Meeting Notes</h1></a><hr>
+<p>Adam Klein (AK), Allen Wirfs-Brock (AWB), Andrew Burgese (ABE), Andrew Paprocki (API), Ben Newman (BN), Benoit Girard (BGD), Bradley Farias (BFS), Brendan Eich (BE), Brian Terlson (BT), Caridy Patiño (CP), Chip Morningstar (CM), Chris Hyle (CHE), Claude Pache (CPE), Dave Herman (DH), David Teller (DTL), David Turissini (DTI), Dean Tribble (DT), Diego Ferreiro Val (DFV), Domenic Denicola (DD), Gabriel Isenberg (GI), István Sebestyén (IS), Jeff Morrison (JM), John-David Dalton (JDD), Jonathan Keslin (JKN), Jordan Harband (JHD), Jorge Lopez (JLZ), Kent C. Dodds (KCD), Kevin Gibbons (KG), Kevin Venkiteswaran (KVN), Leo Balter (LBR), Maggie Pint (MPT), Mariko Kosaka (MKA), Mark S. Miller (MM), Michael Ficarra (MF), Michael Saboff (MS), Nathan Hammond (NHD), Patrick Soquet (PST), Peter Hoddie (PHE), Pierre-Marie Dartus (PMD), Rex Jaeschke (RJE), Rob Palmer (RPR), Ron Buckton (RBN), Sam Goto (SGO), Sebastian Markbåge (SM), Shu-yu Guo (SYG), Vladan Djeric (VDC), Waldemar Horwat (WH), Yehuda Katz (YK),</p>
+<hr>
 <a href="#13iiic-binary-ast"><h2 id="13iiic-binary-ast">13.iii.c Binary AST</h2></a><p>(Shu-yu Guo, SYG)</p>
 <ul>
 <li><a href="https://github.com/syg/ecmascript-binary-ast/">proposal</a></li>
@@ -58,7 +60,7 @@
 <li><a href="https://www.microsoft.com/en-us/research/publication/jszap-compressing-javascript-code/">https://www.microsoft.com/en-us/research/publication/jszap-compressing-javascript-code/</a></li>
 </ul>
 <p>SYG: It's unclear to me whether we could really specify such a <em>transform</em> practically; it sounds hard to specify and hard to maintain.</p>
-<p>BF: We're just talking about the structure, right?</p>
+<p>BFS: We're just talking about the structure, right?</p>
 <p>SYG: Right</p>
 <p>WH:</p>
 <ul>
@@ -72,7 +74,7 @@
 <p>SYG: It's extra work; we don't put the onus on proposal authors to prove equivalence to something</p>
 <p>KG: You had something in the proposal about exemplars, right? For example, we're introducing a proposal to make a binding in a catch node which makes the binding optional. That's a change. Expressing that would be handled by exemplars, right?</p>
 <p>SYG: There is a slide about this later.</p>
-<p>BF: The burden is on the tools to produce valid ASTs.</p>
+<p>BFS: The burden is on the tools to produce valid ASTs.</p>
 <p>SYG: The Shape folks have worked to ensure that there are fewer invalid ASTs expressible in their type, compared to Babylon. OTOH, Babel is based on a de-facto AST standard which is widely used by JS code, but it's not as much thought out.</p>
 <p>MM: Have you thought about representing source maps?</p>
 <p>SYG: That's a can of worms that I don't want to include in this proposal.</p>
@@ -83,9 +85,9 @@
 <p>SYG: 3x, but we'd like to do better by going beyond encoding ASTs.</p>
 <p>YK: Is it possible to encode a syntax error in the binary AST?</p>
 <p>SYG: I'll get into errors later.</p>
-<p>BF: It's possible to have an AST format that forbids certain early errors / well-formedness errors by construction.</p>
+<p>BFS: It's possible to have an AST format that forbids certain early errors / well-formedness errors by construction.</p>
 <p>AWB: Many well-formedness checks are not specified at the level of the exact errors you'll get (if there are multiple early errors in a file, the spec doesn't say which one you'll get), just that there will be early well-formedness errors.</p>
-<p>BF: You could have a binary AST with a <code>with</code> statement in it, which is not an error according to the AST format, but it's an early (parsing) error in strict mode.</p>
+<p>BFS: You could have a binary AST with a <code>with</code> statement in it, which is not an error according to the AST format, but it's an early (parsing) error in strict mode.</p>
 <p>YK: The binary AST should say what the root parsing goal is (Script or Module).</p>
 <p>SYG: If the spec says you can defer throwing well-formedness errors, that enables lazy parsing. That's why we're talking about deferring those errors.</p>
 <p>DH: Example:</p>
@@ -102,7 +104,7 @@ foo();
 <p>MP: As a library maintainer, this proposal gives me some fear, because errors from the binary AST are less debuggable than errors from source code.</p>
 <p>AK: Transpilers and faulty compilers have similar consequences for debuggability.</p>
 <p>MP: And that's a bad experience for programmers too.</p>
-<p>BF: ASTs can have a reduced number of early errors compared to source code.</p>
+<p>BFS: ASTs can have a reduced number of early errors compared to source code.</p>
 <p>SYG: …continuing presentation… (&quot;How to Encode Set of Binding Names?&quot; slide)</p>
 <p>WH: What if you're inside a <code>with</code> statement? Then you may not know which <code>x</code> you're referring to.</p>
 <p>SYG: I'm hoping to make easier-to-statically-analyze usages fast, and tolerate <code>with</code> with fewer performance benefits. Also, you always know as you're parsing whether you're inside a <code>with</code>, so <code>with</code> can never be in the future of your token stream (unlike a <code>var</code> declaration).</p>
@@ -123,7 +125,7 @@ foo();
 <p>YK: You'll have a sourcemap-like thing.</p>
 <p>SYG: Like a more advanced minifier.</p>
 <p>DH: We'll need a format for annotating a sourcemap, at some point, right?</p>
-<p>BF: There are out-of-band ways to do that (YK: such as HTTP headers).</p>
+<p>BFS: There are out-of-band ways to do that (YK: such as HTTP headers).</p>
 <p>YK: There may be benefits to thinking about the source map format at the same time as the AST format. Traditional source maps are text-to-text mappings (and the binary AST isn't text with lines and columns).</p>
 <p>MS: Concerned about effort to validate the AST, to protect the engine against malformed AST data. How much work is needed to validate the AST?</p>
 <p>SYG: I'm going to work with all the engines to design the binary AST format. Details have not been designed yet.</p>
@@ -177,7 +179,7 @@ foo();
 <p>DTL: It's not clear what you mean; are you talking about shipping Babel output? Why would this not be possible for ASTs?</p>
 <p>JHD: If I want my code to detect if generators are natively supported, I have to load additional code later. Maybe browsers could use headers to specify which AST nodes / binary AST capabilities they support. I think this concern is very important, but I think it's both a later stage concern and also largely outside of ECMAScript.</p>
 <p>DTL: Yes, I think this can be solved outside of ECMAScript.</p>
-<p>BF: From the non-webbrowser side, Webpack has people looking at this on their performance team. Getting binary formats would be great. JSON parsing is a big source of overhead, as well.
+<p>BFS: From the non-webbrowser side, Webpack has people looking at this on their performance team. Getting binary formats would be great. JSON parsing is a big source of overhead, as well.
 This proposal would benefit tools, too; not purely for the web.</p>
 <p>WH: With modules, would you just parse it, or would you also try to bind imported with exported identifiers across files?</p>
 <p>SYG: It would continue to be literals, strings, etc. No extra semantic information.</p>
@@ -192,7 +194,7 @@ This proposal would benefit tools, too; not purely for the web.</p>
 </ul>
 <a href="#10iv-javascript---composition-and-compliance"><h2 id="10iv-javascript---composition-and-compliance">10.iv JavaScript - Composition and Compliance</h2></a><p>(Dean Tribble)</p>
 <p>TODO: insert slides</p>
-<a href="#5-report-from-the-ecma-secretariat"><h2 id="5-report-from-the-ecma-secretariat">5. Report from the Ecma Secretariat</h2></a><p>(Istvan Sebastian)</p>
+<a href="#5-report-from-the-ecma-secretariat"><h2 id="5-report-from-the-ecma-secretariat">5. Report from the Ecma Secretariat</h2></a><p>(István Sebestyén)</p>
 <p>The report has been uploaded to the GitHub under Reflector as 2017 July Ecma Secretariat Report
 It will be published also as a Ecma TC39 document.</p>
 <p>IS: Approved TC39 standards at the last General Assembly</p>
@@ -239,7 +241,7 @@ It will be published also as a Ecma TC39 document.</p>
 <p>WH: The spec mandates those.</p>
 <p>DH: Ignore the proposed spec. It should be deleted.</p>
 <p>WH: The spec draft is incoherent and in major conflict with the presentation. Given the incoherence and conflict between the proposed spec and presentation, I am not comfortable with the spec meeting stage 2 entry requirements.</p>
-<p>BF: This is additive to and compatible with Node's plans.</p>
+<p>BFS: This is additive to and compatible with Node's plans.</p>
 <p>DD: Chrome is not comfortable moving this to stage 2, as we believe it's a strength of the language that this determination is left up to the host to decide. Mandating something in ECMA-262 is not the right path here.</p>
 <p>BE: can you explain why it's a strength that this information is not in-band?</p>
 <p>DD: It provides a simpler mental model and less potential conflicts of meaning if there is one source of truth and no pragmas.</p>
@@ -251,7 +253,7 @@ It will be published also as a Ecma TC39 document.</p>
 <p>DH: Ecosystems that only use modules (e.g. Ember) will not want to put &quot;use module&quot; at the top of all their modules.</p>
 <p>DD: We don't believe &quot;use module&quot; is useful because <code>export {}</code> exists for the &quot;assert I never end up in the wrong mode&quot; case, and the web has out-of-band mechanisms like <code>&lt;script type=module&gt;</code>. We should not be adding new modes.</p>
 <p>DH: This is not adding a new mode, just an assertion about the current mode.</p>
-<p>BF: The &quot;use nomodule&quot; pragma would be useful for bundlers that rely on Script semantics. Similarly, I would like <code>import &quot;./common.js&quot;</code> to fail if &quot;use module&quot; is present.</p>
+<p>BFS: The &quot;use nomodule&quot; pragma would be useful for bundlers that rely on Script semantics. Similarly, I would like <code>import &quot;./common.js&quot;</code> to fail if &quot;use module&quot; is present.</p>
 <p>DD: Data about accidental script/module inclusion could persuade us that this is useful across environments. E.g., data on how often people ship code using <code>&lt;script&gt;</code> (without <code>type=module</code>) but used <code>export</code>/<code>import</code>, causing an error. Or vice-versa.</p>
 <p>WH: All of the possible decisions about where to place the directives are wrong here. Should the directives be interpreted in function, arrow function, and generator headers (as &quot;use strict&quot; ones are) or not? We can't say we're going to decide later. If we ignore the directives, the function nesting of &quot;use module&quot; is a real problem because it's legal syntax (a string-valued expression statement) that will simply be ignored, leading to surprises. On the other hand, if we interpret the directives inside functions, then extracting and evaluating the source will misbehave.</p>
 <p>MM: What happens with &quot;use asm&quot;?</p>
@@ -272,7 +274,7 @@ It will be published also as a Ecma TC39 document.</p>
 <p>DD: I think <code>export {}</code> is fine for the purposes of asserting that you're in a module, because (absent data) I don't believe that is a high-priority use case. (Whereas, distinguishing between module and script is a high-priority use case, but should be solved in a host-dependent way, not using in-band information specified in Ecma-262.)</p>
 <p>YK: You can make a tool that converts &quot;use module&quot; to <code>export {}</code>.</p>
 <p>??: This also affects editors that need to know whether to interpret files as modules.</p>
-<p>BF: Node is not going to diverge from the browser on this topic. If &quot;use module&quot; is not supported by browsers, Node is not going to use &quot;use module&quot; either.</p>
+<p>BFS: Node is not going to diverge from the browser on this topic. If &quot;use module&quot; is not supported by browsers, Node is not going to use &quot;use module&quot; either.</p>
 <p>??: As soon as you say this is going to be host-specific behavior, hosts are going to shy away from it.</p>
 <p>DD: I don't think this committee should make decisions by having hosts say &quot;we won't do anything unless you standardize it across all hosts&quot;.</p>
 <p>YK: The question is, &quot;What is the disambiguation strategy?&quot; Node and TypeScript could agree on this, and they need to.</p>

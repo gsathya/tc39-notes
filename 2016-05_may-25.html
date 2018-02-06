@@ -8,10 +8,13 @@
 
 <title>May 25, 2016 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#may-25-2016-meeting-notes"><h1 id="may-25-2016-meeting-notes">May 25, 2016 Meeting Notes</h1></a><p>Brian Terlson (BT), Dave Herman (DH), Michael Ficarra (MF), Jordan Harband (JHD), Waldemar Horwat (WH), Tim Disney (TD), Shu-yu Guo (SYG), Mark Miller (MM), Kevin Smith (KS), Michael Saboff (MS), Eric Faust (FST), Chip Morningstar (CM), Daniel Ehrenberg (DE), Leo Balter (LBR), Yehuda Katz (YK), Jafar Husain (JH), Andreas Rossberg (ARB), Ben Smith (BS), Thomas Wood (TW), Alan Schmitt (AS), Brad Nelson (BNN), István Sebestyén (IS), John Neumann (JN), Jeff Morrison (JM), Domenic Denicola (DD)</p>
-<p>Over Hangouts (part-time): Dean Tribble (DT), Nikolaus Papaspyrou</p>
+<a href="#may-25-2016-meeting-notes"><h1 id="may-25-2016-meeting-notes">May 25, 2016 Meeting Notes</h1></a><hr>
+<p>Brian Terlson (BT), Dave Herman (DH), Michael Ficarra (MF), Jordan Harband (JHD), Waldemar Horwat (WH), Tim Disney (TD), Shu-yu Guo (SYG), Mark S. Miller (MM), Kevin Smith (KS), Michael Saboff (MS), Eric Faust (EFT), Chip Morningstar (CM), Daniel Ehrenberg (DE), Leo Balter (LBR), Yehuda Katz (YK), Jafar Husain (JH), Andreas Rossberg (ARB), Ben Smith (BS), Thomas Wood (TW), Alan Schmitt (AS), Brad Nelson (BNN), István Sebestyén (IS), John Neumann (JN), Jeff Morrison (JM), Domenic Denicola (DD)</p>
+<p>Remote:
+Dean Tribble (DT), Nikolaus Papaspyrou (NPU)</p>
+<hr>
 <a href="#agenda"><h2 id="agenda">Agenda</h2></a><p>??: Unfortunately we will not able to cover all topics. There is a priority for proposals that have to advance in this meeting. The target is for each topic one hour of discussion maximum. We will see how that will work out...</p>
-<p><strong>NOTE from Istvan</strong>: The formal Ecma rule is that any proposal that has to be voted upon formally (i.e. one vote per member company present in the voting) in an Ecma TC is a publication at least 15 days before the TC meeting. Anything shorten that that can be introduced, discussed, move forward for further discussion, consideration, etc... but a &quot;formal&quot; TC decision is not possible.</p>
+<p><strong>NOTE from István</strong>: The formal Ecma rule is that any proposal that has to be voted upon formally (i.e. one vote per member company present in the voting) in an Ecma TC is a publication at least 15 days before the TC meeting. Anything shorten that that can be introduced, discussed, move forward for further discussion, consideration, etc... but a &quot;formal&quot; TC decision is not possible.</p>
 <a href="#decorators"><h2 id="decorators"><a href="https://github.com/tc39/proposal-decorators">Decorators</a> (YK, BT)</h2></a><p>[<em>slides</em>] <strong>TODO:</strong> link to slides</p>
 <p>ARB: the fact that classes are declarative is a feature</p>
 <p>WH: adding a link to the proposal to the agenda 30 min before presenting a proposal looking to advance is unreasonable</p>
@@ -36,7 +39,7 @@
 <p>DD: you have to produce a wrapper for all decorated classes</p>
 <p>BT: we could also not have them be SameValue</p>
 <p>DE: I would prefer we have no runtime overhead from a class that has been decorated</p>
-<p>FST: classes already have additional cost (derived class constructors' this value)</p>
+<p>EFT: classes already have additional cost (derived class constructors' this value)</p>
 <p>YK: the set of functions and values conveyed in this proposal is quite small</p>
 <p>DD: I had hoped to see ore formal semantics; how does the array get converted into ClassElements? how do the property descriptors get used?</p>
 <p>DD: do you pack them up into spec objects and unpack them, or are the same objects re-used?</p>
@@ -75,7 +78,7 @@
 <p>KS: This is a core semantic change to the basic language and exposes something that's not there right now</p>
 <p>DH: it happens to be written &quot;make a function that is unintialised&quot;; question remains what is the difference between an initialised and unitialised function?</p>
 <p>DH: can be a single it that marks the function as uninitialised</p>
-<p>FST: then it should specify it that way</p>
+<p>EFT: then it should specify it that way</p>
 <p>JHD: can it be a live binding to a different function that always throws, that's updated later?</p>
 <p>WH: What happens when you call toString on it? What happens if you start walking its prototype?</p>
 <p>BT: The only difference is that when you call it it throws. Otherwise it's just normal.</p>
@@ -300,7 +303,7 @@ justify/rationalise the breakage.</p>
 <p>DD: Maybe it doesn't need one, but it seems nice and analogous to exceptions.</p>
 <p>MM: Cancellation should be as fast as normal control flow and should not collect stack traces. It doesn't collect stack traces.</p>
 <p>SYG: try-catch is not slow because it is an exceptional event, it is slow because of the non-locality itself</p>
-<p>FST: motivation?</p>
+<p>EFT: motivation?</p>
 <p>YK: XHR has an abort feature; fetch API is Promise-based and cannot have a similar feature</p>
 <p>BT: this is especially important if you await one of these promises</p>
 <p>DD: key distinction between error state and canceled state is top-level ignores canceled promise</p>
@@ -332,7 +335,7 @@ justify/rationalise the breakage.</p>
 <li>Stage 1!</li>
 </ul>
 <a href="#definitive-decision-for-test262-python-runner"><h2 id="definitive-decision-for-test262-python-runner"><a href="https://github.com/tc39/test262/issues/647">Definitive decision for test262 python runner</a> (Mike Pennisi)</h2></a><p>LBR: TC39 agreed to deprecate the python runner in 2014, we want to remove it from test262 as it demands extra energy on a deprecated tool while implementing new features.</p>
-<p>FST: We can work it out. It does not need to move it to a new TC39's repository.</p>
+<p>EFT: We can work it out. It does not need to move it to a new TC39's repository.</p>
 <p><em>many</em>: let's remove it.</p>
 <a href="#conclusionresolution-definitive-decision-for-test262-python-runner"><h4 id="conclusionresolution-definitive-decision-for-test262-python-runner">Conclusion/Resolution</h4></a><ul>
 <li>Already deprecated; just delete it.</li>

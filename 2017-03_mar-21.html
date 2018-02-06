@@ -8,15 +8,15 @@
 
 <title>March 21, 2017 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#march-21-2017-meeting-notes"><h1 id="march-21-2017-meeting-notes">March 21, 2017 Meeting Notes</h1></a><p>Allen Wirfs-Brock (AWB), Waldemar Horwat (WH), Brian Terlson (BT), Michael Ficarra (MF), Adam Klein (AK), Dave Herman (DH),  Kent C. Dodds (KCD), Tim Disney (TD), Daniel Ehrenberg (DE), Shu-yu Guo (SYG), Michael Saboff (MS), Sebastian Markbage (SM), Bradley Farias (BF), Maggie Pint (MPT), Jamund Ferguson (JXF), Myles Borins (MBS), Logan Smyth (LS), Sarah D'Onofrio (SD), Alan Schmitt (AS), Dean Tribble (DT), Peter Jensen (PJ), Mark S. Miller (MM), Leo Balter (LBR), Zibi Braniecki (ZB), Rafael Xavier (RX), Yehuda Katz (YK), Caridy Patino (CP), Diego Ferreiro Val (DFV), Brendan Eich (BE), Lyza Gardner (LG), Mathias Bynens (MB)</p>
-<a href="#3-adopting-the-agenda"><h2 id="3-adopting-the-agenda">3. Adopting the agenda</h2></a><ul>
+<a href="#march-21-2017-meeting-notes"><h1 id="march-21-2017-meeting-notes">March 21, 2017 Meeting Notes</h1></a><hr>
+<a href="#allen-wirfs-brock-awb-waldemar-horwat-wh-brian-terlson-bt-michael-ficarra-mf-adam-klein-ak-dave-herman-dh--kent-c-dodds-kcd-tim-disney-td-daniel-ehrenberg-de-shu-yu-guo-syg-michael-saboff-ms-sebastian-markbage-sm-bradley-farias-bfs-maggie-pint-mpt-jamund-ferguson-jxf-myles-borins-mbs-logan-smyth-ls-sarah-donofrio-sdo-alan-schmitt-as-dean-tribble-dt-peter-jensen-pj-mark-s-miller-mm-leo-balter-lbr-zibi-braniecki-zb-rafael-xavier-rx-yehuda-katz-yk-caridy-patino-cp-diego-ferreiro-val-dfv-brendan-eich-be-lyza-gardner-lg-mathias-bynens-mb"><h2 id="allen-wirfs-brock-awb-waldemar-horwat-wh-brian-terlson-bt-michael-ficarra-mf-adam-klein-ak-dave-herman-dh--kent-c-dodds-kcd-tim-disney-td-daniel-ehrenberg-de-shu-yu-guo-syg-michael-saboff-ms-sebastian-markbage-sm-bradley-farias-bfs-maggie-pint-mpt-jamund-ferguson-jxf-myles-borins-mbs-logan-smyth-ls-sarah-donofrio-sdo-alan-schmitt-as-dean-tribble-dt-peter-jensen-pj-mark-s-miller-mm-leo-balter-lbr-zibi-braniecki-zb-rafael-xavier-rx-yehuda-katz-yk-caridy-patino-cp-diego-ferreiro-val-dfv-brendan-eich-be-lyza-gardner-lg-mathias-bynens-mb">Allen Wirfs-Brock (AWB), Waldemar Horwat (WH), Brian Terlson (BT), Michael Ficarra (MF), Adam Klein (AK), Dave Herman (DH),  Kent C. Dodds (KCD), Tim Disney (TD), Daniel Ehrenberg (DE), Shu-yu Guo (SYG), Michael Saboff (MS), Sebastian Markbåge (SM), Bradley Farias (BFS), Maggie Pint (MPT), Jamund Ferguson (JXF), Myles Borins (MBS), Logan Smyth (LS), Sarah D'Onofrio (SDO), Alan Schmitt (AS), Dean Tribble (DT), Peter Jensen (PJ), Mark S. Miller (MM), Leo Balter (LBR), Zibi Braniecki (ZB), Rafael Xavier (RX), Yehuda Katz (YK), Caridy Patiño (CP), Diego Ferreiro Val (DFV), Brendan Eich (BE), Lyza Gardner (LG), Mathias Bynens (MB)</h2></a><a href="#3-adopting-the-agenda"><h2 id="3-adopting-the-agenda">3. Adopting the agenda</h2></a><ul>
 <li><a href="https://github.com/tc39/agendas/blob/master/2017/03.md">agenda</a></li>
 </ul>
 <p>DT: WeakReferences. Please add 2 additional minutes.</p>
 <p>AK: Please add items 1 week in advance.</p>
 <p>Agenda adopted</p>
 <a href="#4-adopting-the-minutes"><h2 id="4-adopting-the-minutes">4. Adopting the minutes</h2></a><p>Minutes approved</p>
-<a href="#5-report-from-the-ecma-secretariat"><h2 id="5-report-from-the-ecma-secretariat">5. Report from the Ecma Secretariat</h2></a><p>AWB: Istvan will do this later.</p>
+<a href="#5-report-from-the-ecma-secretariat"><h2 id="5-report-from-the-ecma-secretariat">5. Report from the Ecma Secretariat</h2></a><p>AWB: István will do this later.</p>
 <a href="#6-ecma-262-status-updates"><h2 id="6-ecma-262-status-updates">6. ECMA-262 Status Updates</h2></a><p>(Brian Terlson)</p>
 <p>BT: Spec is now frozen to any normative changes.</p>
 <p>BT: Most new things will go into ES2018.</p>
@@ -40,7 +40,7 @@
 <p>DT: Shape security Yes.</p>
 <p>SM: FB Yes.</p>
 <p>MS: Apple Yes.</p>
-<p>BF: GoDaddy Yes.</p>
+<p>BFS: GoDaddy Yes.</p>
 <p>BT: Microsoft Yes.</p>
 <p>MPT: JSFoundation Yes.</p>
 <p>PJ: Intel Yes.</p>
@@ -443,7 +443,7 @@
 <p>??: What makes this not stage 3?</p>
 <p>WH: There's nothing to do to get it to stage 3...</p>
 <p>BT: We actually have final <a href="https://mathiasbynens.github.io/es-regexp-dotall-flag/">spec text</a>. You'll find changes to flags, adding the <code>dotAll</code> property and the various other changes that need to happen.</p>
-<p>SD: Does it need to go up with the Unicode changes?</p>
+<p>SDO: Does it need to go up with the Unicode changes?</p>
 <p>WH: It's orthogonal to Unicode. See above &quot;character&quot; definition.</p>
 <p>AWB: Is there a reason this can't be stage 3?</p>
 <p>BT: Stage 3? Anyone object? We're basing that on Waldemar's review. Based on the spec text I think we're good.</p>
@@ -738,14 +738,14 @@ It is proposed that Peter and Yehuda will become caretaker champions of the high
 <p>WH: Can you explain why?</p>
 <p>MB: When the io.js fork happened, all the headers were removed, and it turns out... there are laws... We just landed this about a week ago. If you go check the Node repo right now...the first round of the headers took us about a year.</p>
 <p>AWB: We have to go through a committee of lawyers.</p>
-<a href="#conclusion-10ii-test262-using-root-license-as-default-for-files"><h4 id="conclusion-10ii-test262-using-root-license-as-default-for-files">Conclusion</h4></a><p>There was no objection from the committee to removing the headers, and Leo will escalate this with Istvan.</p>
+<a href="#conclusion-10ii-test262-using-root-license-as-default-for-files"><h4 id="conclusion-10ii-test262-using-root-license-as-default-for-files">Conclusion</h4></a><p>There was no objection from the committee to removing the headers, and Leo will escalate this with István.</p>
 <a href="#weak-references-status-update"><h2 id="weak-references-status-update">Weak References status update</h2></a><p>DT: I did the first round and started a draft. It was left at most people liking it but concerns about what it would be like in practice. Turns out the requires being in large C++ environments. Not a lot of progress has happened there. I'm looking for someone else to pair with me who can do the C++ side so I can focus on what I intended which is the JS side. That will really help in getting an implementation in V8 and node so people can play with it.</p>
 <p>MM: Given what you're asking for there's no reason to limit it to those two.</p>
 <p>DT: That's true.</p>
 <p>MM: Any open source engine.</p>
 <p>DT: If there's an engine that's less production and simpler to add this kind of prototyping.</p>
 <p>MM: So you're looking for someone who can volunteer to help with it.</p>
-<p>BF: I can help, but I'm only going to help with V8, because that's what I know.</p>
+<p>BFS: I can help, but I'm only going to help with V8, because that's what I know.</p>
 <p>MM: And thank you, that makes a huge difference.</p>
 <p>DT: I'll sync up with you and we'll see where we're at. Not something we can have by May, but we'll see how far we get. There are minor tweaks to the spec. But none of them are substantial.</p>
 <a href="#conclusionresolution-weak-references-status-update"><h4 id="conclusionresolution-weak-references-status-update">Conclusion/Resolution</h4></a><p>Bradley will help out and they will report back in 2+ months.</p>

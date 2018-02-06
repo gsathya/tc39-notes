@@ -8,9 +8,11 @@
 
 <title>November 28, 2017 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#november-28-2017-meeting-notes"><h1 id="november-28-2017-meeting-notes">November 28, 2017 Meeting Notes</h1></a><p>Jordan Harband (JHD), Rex Jaeschke (RJE), Michael Saboff (MS), Caridy Patiño (CPO), Peter Jensen (PJ), Sebastian McKenzie (SMK), Fabio Rocha (FRA), Till Schneidereit (TST), Peter Hoddie (PHE), Michael Ficarra (MF), Kat Z. Marchán (KZM), Bradley Farias (BFS), Daniel Ehrenberg (DE), Kevin Gibbons (KGS), Chip Morningstar (CM), Dave Herman (DH), Aki Rose (ARE), Godfrey Chan (GCN), Yehuda Katz (YK), Natalie Silvanovich (NSH), Adam Klein (AKN), Alan Schmitt (AS), Andrew Paprocki (API), Chris Hyle (CHE), Mattijs Hoitink (MHK), Mark Miller (MM), Mathias Bynens (MB), Keith Cirkel (KCL), Justin Ridgewell (JRL), Shu-yu Guo (SYG), Zibi Braniecki (ZB), Mariko Kosaka (MKA), Sam Goto (SGO), Keith Miller (KMR)</p>
+<a href="#november-28-2017-meeting-notes"><h1 id="november-28-2017-meeting-notes">November 28, 2017 Meeting Notes</h1></a><hr>
+<p>Jordan Harband (JHD), Rex Jaeschke (RJE), Michael Saboff (MS), Caridy Patiño (CPO), Peter Jensen (PJ), Sebastian McKenzie (SMK), Fabio Rocha (FRA), Till Schneidereit (TST), Peter Hoddie (PHE), Michael Ficarra (MF), Kat Z. Marchán (KZM), Bradley Farias (BFS), Daniel Ehrenberg (DE), Kevin Gibbons (KG), Chip Morningstar (CM), Dave Herman (DH), Aki Rose (ARE), Godfrey Chan (GCN), Yehuda Katz (YK), Natalie Silvanovich (NSH), Adam Klein (AK), Alan Schmitt (AS), Andrew Paprocki (API), Chris Hyle (CHE), Mattijs Hoitink (MHK), Mark S. Miller (MM), Mathias Bynens (MB), Keith Cirkel (KCL), Justin Ridgewell (JRL), Shu-yu Guo (SYG), Zibi Braniecki (ZB), Mariko Kosaka (MKA), Sam Goto (SGO), Keith Miller (KM)</p>
 <p>Remote:
-Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</p>
+István Sebestyén (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</p>
+<hr>
 <a href="#1-opening-welcome-and-roll-call"><h2 id="1-opening-welcome-and-roll-call">1. Opening, welcome and roll call</h2></a><ul>
 <li><a href="https://github.com/tc39/agendas/blob/master/2017/11.md">Agenda</a></li>
 </ul>
@@ -203,16 +205,16 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>DE: We have 3 options here. Remove parseInt, give it a different grammar (e.g. the grammar for BigInt(string) but with a radix argument) or we stick with Number.parseInt semantics warts and all.</p>
 <p>BE: Remember in July we raised an issue of oddities with Number.parseInt cleanups around null and radixes greater than 23. If we have BigInt.parseInt let's have it with cleanups of Number.parseInt</p>
 <p>DE: Does BigInt.parseInt pay for itself?</p>
-<p>AKN: having looked at the implementation of parseInt it does a bunch of weird stuff that you don't want.</p>
+<p>AK: having looked at the implementation of parseInt it does a bunch of weird stuff that you don't want.</p>
 <p>DE: Ignoring trailing garbage is perhaps the worst of those things.</p>
-<p>AKN: Also the 0x prefix support is very bad.</p>
+<p>AK: Also the 0x prefix support is very bad.</p>
 <p>BE: Do these criticisms apply to any Number.parseInt, BigInt.parseInt, Decimal.parseInt?</p>
 <p>DE: Number.parseInt is still bad after the cleanup. We could change the method name to <code>BigInt.fromString</code> and have a cleaned up grammar. Or would that be weird?</p>
 <p>BE: Yes we can call it fromString and cleanup. The global imprint becomes bigger - we now have a fromString convention. But if parseInt stinks up the place lets just diverge and call it fromString.</p>
 <p>YK:</p>
-<p>AKN: This is a good argument for leaving it out and adding it later I guess.</p>
+<p>AK: This is a good argument for leaving it out and adding it later I guess.</p>
 <p>DE: Any feeling in the room of preference among these options then? Absent any feedback I'll go for fromString.</p>
-<p>AKN: I'd say leave it out for now.</p>
+<p>AK: I'd say leave it out for now.</p>
 <p>YK: I agree</p>
 <p>JHD: As a general temperature for the room - what would consensus be for Number.fromString etc for consistency? In the future would this be welcome? If no one immediately objects to that concept - then we could leave this out for now.</p>
 <p>BE: We should keep in mind the &quot;browser game theory&quot; here. We have a shot to get something in now; later it could be harder.</p>
@@ -243,7 +245,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <li><a href="https://github.com/tc39/process-document/pull/15">pr</a></li>
 </ul>
 <p>DE: (Presenting)</p>
-<p>KMR: A lot of proposals make it to stage 3, get implemented by 1 or 2 engines, and for whatever reason they die. For example SIMD. If it had shipped, they'd be locked into it - but it would never make it into the standard. The problem is shipping features that - beyond a reasonable doubt - wont make it into the spec locks us into shipping non-spec features.</p>
+<p>KM: A lot of proposals make it to stage 3, get implemented by 1 or 2 engines, and for whatever reason they die. For example SIMD. If it had shipped, they'd be locked into it - but it would never make it into the standard. The problem is shipping features that - beyond a reasonable doubt - wont make it into the spec locks us into shipping non-spec features.</p>
 <p>MS: Keith and I are in alignment. SIMD sat at stage 3 for a long time.</p>
 <p>DE: It's not at Stage 3 anymore.</p>
 <p>MS: No, but it did stay there. Also sometimes things change in stage 3 that are significant changes, if we ship prior to these changes, we end up with web compat issues. The intent here is to kick the tires. Historically, Apple can't help in this process though; historically we ship one stable version of Safari per year, this year we shipped two. I don't know if we'll dramatically change that. It doesn't make sense for the committee to wait for us to ship. Its unlikely we'll ever have a stage 3 feature sitting in Safari stable.</p>
@@ -274,11 +276,11 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>DE: This proposal was created to solve a concrete problem. At the last meeting, we weren't able to move a RegExp proposal forward just because it hadn't shipped to two stable implementations, only to browser preview implementations.</p>
 <p>DH: So you think the requirements are too strict?</p>
 <p>DE: Well, the objection presented in committee was actionable; we had Chrome and Safari implementing it, and we just needed to wait for another browser to implement which has a different sort of shipping policy from Safari to meet the requirement stated by a committee memer.</p>
-<p>AKN: I don't think not going to stage 4 is a concrete problem. What Godfrey said was good - let's think about what are we trying to get out of the process, rather than focusing too much on the process.</p>
+<p>AK: I don't think not going to stage 4 is a concrete problem. What Godfrey said was good - let's think about what are we trying to get out of the process, rather than focusing too much on the process.</p>
 <p>BT: From the ChakraCore perspective we're in the similar boat to JSC - around what we can implement. We don't have a rapid shipping channel to the public, I definitely don't like the idea of waiting for implementations in stable browsers. I also agree that we shouldn't nail down a hard process here. I like the idea of champions identifying risk areas. That info will be different per proposal.</p>
-<p>AKN: As Domenic is not here I'm going to try and express his feelings. He doesn't want things to end up in the spec that are not supported by JavaScript implementations; e.g., SIMD.js could have ended up getting to stage 4 given the relaxed requirements (read in isolation). Domenic is worried that the way to block something is to hold up the consensus.</p>
+<p>AK: As Domenic is not here I'm going to try and express his feelings. He doesn't want things to end up in the spec that are not supported by JavaScript implementations; e.g., SIMD.js could have ended up getting to stage 4 given the relaxed requirements (read in isolation). Domenic is worried that the way to block something is to hold up the consensus.</p>
 <p>DE: Maybe we could have signoff from implementations?</p>
-<p>AKN: Well getting to any stage at all is effective signoff. I'm worried that this takes power from the committee to say that if you're stage 3 two implementations means you're stage 4 - without committee involvement.</p>
+<p>AK: Well getting to any stage at all is effective signoff. I'm worried that this takes power from the committee to say that if you're stage 3 two implementations means you're stage 4 - without committee involvement.</p>
 <p>SYG: What was the original motivation for this PR? To reduce the deadlock situation? That we can be blocked waiting for another implementor?</p>
 <p>DE: Yeah, that and balancing it with wanting to ensure theres sufficient buy-in.</p>
 <p>SYG: I don't see this helping that then. Nobody is going to go back to their team and say &quot;well the document says we have to do this now&quot; you have to get buy-in, you have to talk to people.</p>
@@ -294,7 +296,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>JHD: Shall I make a PR proposing my idea of categorising concerns?</p>
 <p>DE: Maybe we don't need to formalise this right now.</p>
 <p>MB: Jordan if you do that you're going to need to address &quot;significant&quot; and &quot;such as&quot;.</p>
-<p>AKN: The ambiguity was here so we keep talking about this. This is the discussion we wanted per feature when we added this ambiguity.</p>
+<p>AK: The ambiguity was here so we keep talking about this. This is the discussion we wanted per feature when we added this ambiguity.</p>
 <a href="#conclusionresolution-10iia-clarifyredefine-stage-4-requirements"><h4 id="conclusionresolution-10iia-clarifyredefine-stage-4-requirements">Conclusion/Resolution</h4></a><ul>
 <li>The process document is deliberately ambiguous, allowing a feature-by-feature discussion of what requirements are</li>
 <li>We should become more explicit about discussing what requirements are required for a particular feature to advance to the next stage</li>
@@ -401,9 +403,9 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>DH: You can't guarantee that A is evaluated before B because B could have been evaluated already.</p>
 <p>DH: Why do you want to change the order to evaluate B first?</p>
 <p>BFS: There was a PR against Node that was seeking to do this. It was one route towards providing Babel like named exports from CJS</p>
-<p>AKN: I'm glad this has landed I dont think we should do a TopLevelModuleEvaluationJob - I dont think it really does anything. Concrete html implementation of the loader does not use TopLevelModuleEvaluationJob.</p>
+<p>AK: I'm glad this has landed I dont think we should do a TopLevelModuleEvaluationJob - I dont think it really does anything. Concrete html implementation of the loader does not use TopLevelModuleEvaluationJob.</p>
 <p>BFS: Node does the same</p>
-<p>AKN: I don't think its reasonable to add normative text to the spec</p>
+<p>AK: I don't think its reasonable to add normative text to the spec</p>
 <p>DH: Bradley's  instinct here is good, we have to know what we can reasonably say. How do we specify this invariant? We can add English language invariants, they are in the spec already for example Array.prototype.sort. I want to point out we have discussed this exact topic at some length. In Portland a few years ago we did this. We landed on semantics where async execution of subgraphs are possible but only if they follow the ordering. The goal is to allow browsers to fetch modules and evaluate them as they come available while still respect ordering. In reality its a meek optimisation. Serious webapps will use offline transformations, not modules. The optimisations are useful for small to medium apps but don't scale to big apps. Maintaining ordering invariance is worthwhile.</p>
 <p>YK: For a given graph you're allowed to execute from the leaf backwards as long the children of your module are present and executed - in source order. You are also allowed to spread these evaluations across turns. I think Dave is correct - we want to have a description of what we're trying to accomplish. Executing in source order is important. I agree with David about the meek optimisation. Offline tools work better here.</p>
 <p>BFS: Yes Google came to the same conclusion around ASAP evaluation.</p>
@@ -412,7 +414,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>DH: The reason I believe this is hard is because its dependent on the current module graph for which loading and evaluation has been kicked off. We don't have the entry point as its host specific. TopLevelModuleEvaluationJob was supposed to suggest this but its not used. There are some subtle questions about races where you have interleaving modules. I suspect we haven't thought hard enough about all the race cases. We don't have a way about talking what the session is because its host specific.</p>
 <p>BFS: I'm not eager to try to move the host specific stuff to where it could be described in spec</p>
 <p>DH: It feels like sometimes a spec is trailing reality, not leading it. We can just go away to implementations and after studying what the implementation details are we can spec it. I feel from the room we have a consensus of wanting something in spec but not knowing enough about the problem.</p>
-<p>AKN: Agreed that the race cases may be fatal to having normative language around this.</p>
+<p>AK: Agreed that the race cases may be fatal to having normative language around this.</p>
 <p>BFS: This feels right.</p>
 <a href="#conclusionresolution-9iie-discuss-module-order-instantiationevaluation-guarantees"><h4 id="conclusionresolution-9iie-discuss-module-order-instantiationevaluation-guarantees">Conclusion/Resolution</h4></a><p>This goes against the sort of spirit of the specification, though we have no particular normative spec text to add right now. Spec may in the future add normative text around this.</p>
 <a href="#arrayspecies-array-index-accessors-and-security"><h2 id="arrayspecies-array-index-accessors-and-security">Array[@@Species], Array Index Accessors and Security</h2></a><p>(Natalie Silvanovich)</p>
@@ -422,7 +424,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>NSH: (Presenting)</p>
 <p>DH: Firstly the work you're doing is super important. Thank you for your awesome work. The usage though - I wouldn't expect high usage, its a power feature. Low level meta object protocol hooks take longer for developers to figure out how to make use of them. The thing missing from the analysis is how these features were designed. Deprecating a new feature because its had little usage and some vulnerabilities is premature because of this. Again the work is super important, but my conclusion is not &quot;lets get rid of this feature&quot; but instead &quot;lets work on hardening this&quot;. Developer education is not an issue here, weird things can happen in javascript.</p>
 <p>NSH: Sure - perhaps we could say &quot;is it worth relooking at deprecating in 5 years if usage is still low&quot;</p>
-<p>KMR: What are the semantics of index array accessors?</p>
+<p>KM: What are the semantics of index array accessors?</p>
 <p>MM: Back in ES3 days accessors were not part of the standard but most browsers implemented them. The detailed semantics were never written down - so I cant tell you semantics for them. I will say there is a Frozen Realm proposal which allows for an environment of secure execution. Primordial objects like prototypes are frozen before the environment executes.</p>
 <p>DE: Do you know when array index accessors was added to JS?</p>
 <p>MM: You'd have to ask Waldemar, I can speak to ES3. Originally they walk the prototype chain. Some implementations may have treated them specially but only in the sense that they were buggy.</p>
@@ -444,7 +446,7 @@ Istvan Sebastian (IS), Brian Terlson (BT), Leo Balter (LBR), Rick Waldron (RW)</
 <p>DH: Species was intentionally extensibility design. Subclassing an OO were key goals and continues to be a valid usecase. So if the sentiment in the room is &quot;what did we do?!&quot; then I want to defend the design decisions. We should have just called it out sooner that low level language hooks are rife for vulnerabilities. Let's not have the takeaway that extensibility is a non-goal for JS due to security concerns.</p>
 <p>NSH: Yes this is all easy to say in hindsight, I don't want to attack the original decisions just highlight the vulnerabilities.</p>
 <p>JRL: Surely test262 coverage could add this.</p>
-<p>AKN: Well in my experience conformance testing is not right for this. Fuzz testing or security analysis is how we get these.</p>
+<p>AK: Well in my experience conformance testing is not right for this. Fuzz testing or security analysis is how we get these.</p>
 <p>NSH: I think we should add shared tests for known vulnerabilities.</p>
 <a href="#conclusionresolution-arrayspecies-array-index-accessors-and-security"><h4 id="conclusionresolution-arrayspecies-array-index-accessors-and-security">Conclusion/Resolution</h4></a><ul>
 <li>Explore adding vulnerability tests to Test262</li>

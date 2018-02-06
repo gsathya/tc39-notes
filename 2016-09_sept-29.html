@@ -8,8 +8,12 @@
 
 <title>September 29, 2016 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#september-29-2016-meeting-notes"><h1 id="september-29-2016-meeting-notes">September 29, 2016 Meeting Notes</h1></a><p>Brian Terlson (BT), Michael Ficarra (MF), Jordan Harband (JHD), Waldemar Horwat (WH), Tim Disney (TD), Michael Saboff (MS), Eric Faust (FST), Chip Morningstar (CM), Daniel Ehrenberg (DE), Leo Balter (LBR), Yehuda Katz (YK), Jafar Husain (JH), Domenic Denicola (DD), Rick Waldron (RW), John Buchanan (JB), Kevin Gibbons (KG), Peter Jensen (PJ), Tom Care (TC), Dave Herman (DH), Bradley Farias (BF), Dean Tribble (DT), Jeff Morrison (JM), Sebastian Markbåge (SM), Saam Barati (SB), Kris Gray (KGY), John-David Dalton (JDD), Daniel Rosenwasser (DRR), Jean-Francis Paradis (JFP), Sathya Gunasekasan (SGN), Juan Dopazo (JDO), Bert Belder (BBR), Shu-yu Guo (SYG), Eric Ferraiuolo (EF), Caridy Patiño (CP), Allen Wirfs-Brock (AWB), Jacob Groundwater (JGR), Adam Klein (AK), Istvan Sebestyen (IST), Tom Van Cutsem (TVC), Istvan Sebestyen (partly, via Hangouts), Claude Pache (CPE), James Kyle (JK)</p>
-<p>Istvan Sebestyen: The audio is very bad, unfortunately. ... Maybe I better write....
+<a href="#september-29-2016-meeting-notes"><h1 id="september-29-2016-meeting-notes">September 29, 2016 Meeting Notes</h1></a><hr>
+<p>Brian Terlson (BT), Michael Ficarra (MF), Jordan Harband (JHD), Waldemar Horwat (WH), Tim Disney (TD), Michael Saboff (MS), Eric Faust (EFT), Chip Morningstar (CM), Daniel Ehrenberg (DE), Leo Balter (LBR), Yehuda Katz (YK), Jafar Husain (JH), Domenic Denicola (DD), Rick Waldron (RW), John Buchanan (JB), Kevin Gibbons (KG), Peter Jensen (PJ), Tom Care (TC), Dave Herman (DH), Bradley Farias (BFS), Dean Tribble (DT), Jeff Morrison (JM), Sebastian Markbåge (SM), Saam Barati (SBI), Kris Gray (KGY), John-David Dalton (JDD), Daniel Rosenwasser (DRR), Jean-Francis Paradis (JFP), Sathya Gunasekasan (SGN), Juan Dopazo (JDO), Bert Belder (BBR), Shu-yu Guo (SYG), Eric Ferraiuolo (EF), Caridy Patiño (CP), Allen Wirfs-Brock (AWB), Jacob Groundwater (JGR), Adam Klein (AK), István Sebestyén (IS), Tom Van-Cutsem (TVC), Claude Pache (CPE), James Kyle (JK)</p>
+<p>Remote:
+István Sebestyén (IS)</p>
+<hr>
+<a href="#secretariats-report"><h2 id="secretariats-report">Secretariat's Report</h2></a><p>István Sebestyén: The audio is very bad, unfortunately. ... Maybe I better write....
 Regarding the 2017 European meeting tell me when should it be. In March it would probably be cheaper. Also still skiing would be possible after or before the meeting if someone cares for that.
 May will be more expensive. Meeting place suggestion: Montreux - Royal Plaza Hotel.</p>
 <p>Something else: Status of Fast Track to ISO/IEC: The ECMA-414 needs a 2nd Edition before we can move ahead. I think this has been discussed already. On ECMA-404 JSON Fast track, the DIS voting is going on, and will end in Decmber (I think December 8, 2016). Nothing to be done right now.</p>
@@ -102,7 +106,7 @@ proxy.hasOwnProperty(<span class="hljs-string">'x'</span>) <span class="hljs-com
 <li>Treat PR 666 as spec bug fix, which needs test262 tests to land</li>
 <li>Treat Claude's new formalism as new content via PR to incorporate into spec</li>
 </ul>
-<a href="#10iib-restspread-properties"><h2 id="10iib-restspread-properties">10.ii.b Rest/Spread Properties</h2></a><p>(Sebastian Markbage)</p>
+<a href="#10iib-restspread-properties"><h2 id="10iib-restspread-properties">10.ii.b Rest/Spread Properties</h2></a><p>(Sebastian Markbåge)</p>
 <p><a href="http://sebmarkbage.github.io/ecmascript-rest-spread/">http://sebmarkbage.github.io/ecmascript-rest-spread/</a></p>
 <p>SM: Related new proposal: getters and setters are expected to work more like fields than methods. However, they are defined on the prototype, as well as non-enumerable. Confusing when trying to deprecate a field, make it lazy, etc. However, own enumerable checks required for analogy to existing patterns.</p>
 <pre><code class="language-js"><span class="hljs-comment">// getters are non-own</span>
@@ -157,7 +161,7 @@ data.bar <span class="hljs-comment">// 123</span>
 <li><p>getters are <em>mostly</em> on behavorial side; you could put a getter on an instance, but atypical</p></li>
 </ul>
 <p>Normal usage is one of those two worlds. Proposal: Remove the own restriction</p>
-<p>FST: Some getters you want to be shared, some not.</p>
+<p>EFT: Some getters you want to be shared, some not.</p>
 <ul>
 <li>Augment definition syntax?</li>
 </ul>
@@ -180,7 +184,7 @@ data.bar <span class="hljs-comment">// 123</span>
 <p>MM: (@YK) can you write a decorator to make own?</p>
 <p>YK: Anytime you make a prototype thing, you add cost.</p>
 <p>MM: cases where you want g/s to show up as own property: make it own. The overhead of per-instance g/s to have it be own, seems like fair cost</p>
-<p>FST: I might disagree, depending how common the pattern is. There is real memory overhead.</p>
+<p>EFT: I might disagree, depending how common the pattern is. There is real memory overhead.</p>
 <p>AWB: proposing to possibly eliminate own restriction, but only for inherited enumerable getters</p>
 <p>Rest/spread would grab both:</p>
 <ul>
@@ -191,7 +195,7 @@ data.bar <span class="hljs-comment">// 123</span>
 <p>SM: Syntax?</p>
 <p>AWB: No, use Object.defineProperty or a decorator</p>
 <p>MM: Theory that there is no overhead for the pattern of using own getters — can reuse same getter function objects on multiple instances</p>
-<p>FST: It seems like there would be some overhead still</p>
+<p>EFT: It seems like there would be some overhead still</p>
 <ul>
 <li>SM proposal stay at no change</li>
 <li>given sharing of g/s is minimal enough to use as a way to work around book keeping</li>
@@ -397,7 +401,7 @@ zalgo(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</span
 <p>(Should key on <code>#!</code> anyway)</p>
 <pre><code class="language-js"># IdentifierName 
 </code></pre>
-<p>FST: All other languages use @ for annotation/decorator?</p>
+<p>EFT: All other languages use @ for annotation/decorator?</p>
 <p>Generally, this is not the only cultural motivation for design decisions.</p>
 <p>DE: As private field champion, I am neutral.</p>
 <p>Kevin is strongly in favor of the sigil swap.</p>
@@ -427,12 +431,12 @@ zalgo(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</span
 <p>DRR: Yes, but that's really painful and you want to avoid it</p>
 <p>JHD: If you're using a non-standard syntax, you shouldn't have expectations that it shouldn't change.</p>
 <p>YK: Generally, we should be able to make changes, but we should also be able to weigh existing users vs rational arguments</p>
-<p>BF: JSDoc, etc use the @sigil to document something about the following declaration. If it also represents private state, I would find it confusing personally.</p>
+<p>BFS: JSDoc, etc use the @sigil to document something about the following declaration. If it also represents private state, I would find it confusing personally.</p>
 <p>JHD: But doc comments are entirely different from runtime decorator semantics</p>
 <p>RW: JSDoc is outside of our committee; we can't let them set the rules</p>
 <p>DRR: But there is motivation to look at what exists in programming culture</p>
 <p>DT: It'd actually be great to have a different syntax separating the comment and code syntaxes</p>
-<p>FST: Confusion about what appears in comments vs what appears in code?</p>
+<p>EFT: Confusion about what appears in comments vs what appears in code?</p>
 <p>No. But some think it matters what exists in the ecosystem.</p>
 <p>AWB: As a sigil for identifying special kinds of variables, like private state, @ is much more common in terms of number of languages. # as hashtag is a cultural reference, but it's completely separate from @--each of these sigils have context where they evoke something in people.</p>
 <p>JHD: This will be there for a long time; appeal to the long tail of future programmers, where &quot;hash tag&quot; is something of a &quot;categorization&quot;, decorators deal with a &quot;category&quot; of things.</p>
@@ -505,9 +509,9 @@ zalgo(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</span
 <p>DE: TypedArrays have <code>of</code> and <code>from</code></p>
 <p>AWB: And we added that to make a general convention</p>
 <p>YK: We have to teach people something about the idiom of the constructor. Given that we already have new Set, it would seem to make sense to use here.</p>
-<p>FST: What is the cost of adding consistent APIs across all collection classes?</p>
+<p>EFT: What is the cost of adding consistent APIs across all collection classes?</p>
 <p>DD: Not deprecating the constructor</p>
-<p>FST: don't need to deprecate</p>
+<p>EFT: don't need to deprecate</p>
 <p>KG: insane not to provide a way to make the collection without forcing the brackets</p>
 <p>AK: Other evidence from the wild about demand? Is there a widely used library for this?</p>
 <p>LBR: When working on test262 tests, we needed many tests for the constructor taking iterables of iterables.</p>
@@ -517,7 +521,7 @@ zalgo(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</span
 <li>Inconsistencies between which collection classes have this API and which do not</li>
 </ul>
 <p>MM: A clean API surface is not necessarily a larger API surface.</p>
-<p>FST: Without these, I would think that this would result in user &quot;wat&quot;</p>
+<p>EFT: Without these, I would think that this would result in user &quot;wat&quot;</p>
 <p>YK: A lot of this could be avoided by giving better error messages in our implementations.</p>
 <p>DH: I don't like having brackets, but I also want to have new, which is nice, which overrides it.</p>
 <p>AWB: Our API taking an iterable for the constructors is actually a good choice for a clean, general constructor.</p>
@@ -554,7 +558,7 @@ zalgo(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</span
 <p>BT: Asking... do we want built-in modules?</p>
 <p>DD: We should not move to world where features added after 2018 are in modules. Leave modules to user space.</p>
 <p>DH: Strong point, not specifically in agreement.</p>
-<p>FST: We could make duplicate modules for existing built-in things, and maybe eventually we'll take things out of the global namespace in 10 years</p>
+<p>EFT: We could make duplicate modules for existing built-in things, and maybe eventually we'll take things out of the global namespace in 10 years</p>
 <ul>
 <li>Long term cleanup? (Probably not)</li>
 </ul>
@@ -591,7 +595,7 @@ zalgo(<span class="hljs-function"><span class="hljs-params">_</span> =&gt;</span
 <li>globals cannot</li>
 </ul>
 <p>AK: As to breaking users by adding things to the global object: I didn't remember Set breaking anything, anyway. And modules for user code make this nicer, with the lexical tier making it even nicer and less risk of an overlap. So this does not seem to be a very strong piece of motivation for built-in modules.</p>
-<p>BF: We have to do the global/local cache for exactly this reason, for polyfillability, namely punching something out locally so it can be replaced. This is a huge topic.</p>
+<p>BFS: We have to do the global/local cache for exactly this reason, for polyfillability, namely punching something out locally so it can be replaced. This is a huge topic.</p>
 <p>MM: As a counterpoint to AK, Adding JSON broke Facebook, Facebook changed</p>
 <p>MM: They were shipping a stringifier and parser, but not to spec because it pre-dated the proposal</p>
 <p>(RW, sidenote: ironic ^^^ considering the conversation earlier)</p>

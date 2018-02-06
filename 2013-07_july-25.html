@@ -8,7 +8,9 @@
 
 <title>July 25, 2013 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#july-25-2013-meeting-notes"><h1 id="july-25-2013-meeting-notes">July 25, 2013 Meeting Notes</h1></a><p>John Neumann (JN), Luke Hoban (LH), Rick Hudson (RH), Allen Wirfs-Brock (AWB), Yehuda Katz (YK), Anne van Kesteren (AVK), Jeff Morrison (JM), Sebastian Markbage (SM), Alex Russell (AR), Istvan Sebestyen (IS), Mark Miller (MM), Norbert Lindenberg (NL), Erik Arvidsson (EA), Waldemar Horwat (WH), Eric Ferraiuolo (EF), Matt Sweeney (MS), Doug Crockford (DC), Rick Waldron (RW), Rafael Weinstein (RWS), Dmitry Lomov (DL), Brendan Eich (BE), Ian Halliday (IH), Paul Leathers (PL),</p>
+<a href="#july-25-2013-meeting-notes"><h1 id="july-25-2013-meeting-notes">July 25, 2013 Meeting Notes</h1></a><hr>
+<p>John Neumann (JN), Luke Hoban (LH), Rick Hudson (RH), Allen Wirfs-Brock (AWB), Yehuda Katz (YK), Anne van Kesteren (AVK), Jeff Morrison (JM), Sebastian Markbåge (SM), Alex Russell (AR), István Sebestyén (IS), Mark S. Miller (MM), Norbert Lindenberg (NL), Erik Arvidsson (EA), Waldemar Horwat (WH), Eric Ferraiuolo (EF), Matt Sweeney (MS), Doug Crockford (DC), Rick Waldron (RW), Rafeal Weinstein (RWN), Dmitry Lomov (DL), Brendan Eich (BE), Ian Halliday (IH), Paul Leathers (PL),</p>
+<hr>
 <a href="#56-can-letconstclassfunction-in-non-strict-code-bind-eval-and-arguments"><h2 id="56-can-letconstclassfunction-in-non-strict-code-bind-eval-and-arguments">5.6 Can let/const/class/function* in non-strict code bind &quot;eval&quot; and &quot;arguments&quot;</h2></a><p>(Allen Wirfs-Brock)</p>
 <p>AWB: Currently, only var and function have any rules: non-strict is not</p>
 <p>YK: Reduce the refactoring hazards</p>
@@ -67,14 +69,16 @@
 <li>Duplicate param names not allowed, except for function definitions (things declared with function) with simple parameter lists</li>
 </ul>
 <p>MM: That's more complex</p>
-<a href="#consensusresolution-56-can-letconstclassfunction-in-non-strict-code-bind-eval-and-arguments"><h4 id="consensusresolution-56-can-letconstclassfunction-in-non-strict-code-bind-eval-and-arguments">Consensus/Resolution</h4></a><p>General Rule</p>
+<a href="#consensusresolution-56-can-letconstclassfunction-in-non-strict-code-bind-eval-and-arguments"><h4 id="consensusresolution-56-can-letconstclassfunction-in-non-strict-code-bind-eval-and-arguments">Consensus/Resolution</h4></a><ul>
+<li>General Rule:
 <ul>
 <li>Non-strict code operates in consistently non-strict manner (This covers the let/const/function* cases)</li>
 <li>Exception:</li>
 <li>Only allow duplicate parameter names in simple parameter lists</li>
 <li>Simple parameter lists are defined by those that do not include rest or defaults or destructuring.</li>
+</ul></li>
+<li>Consensus: The name of the ClassDeclaration/ClassExpression follows the strict rules for its name. So it cannot be named &quot;eval&quot; or &quot;arguments&quot;. Just like for strict function names.</li>
 </ul>
-<p>Consensus: The name of the ClassDeclaration/ClassExpression follows the strict rules for its name. So it cannot be named &quot;eval&quot; or &quot;arguments&quot;. Just like for strict function names.</p>
 <a href="#59-semantics-and-bounds-of-numberisinteger-and-numbermax_integer"><h2 id="59-semantics-and-bounds-of-numberisinteger-and-numbermax_integer">5.9 Semantics and bounds of Number.isInteger and Number.MAX_INTEGER</h2></a><p>(Allen Wirfs-Brock, originally proposed by Doug Crockford?)</p>
 <p>AWB: What is the value of MAX_INTEGER</p>
 <p>WH; Whatever the largest finite double</p>
@@ -285,7 +289,7 @@ Postpone Symbols to ES7</p>
 <p>DC: Made changes. Specifiy code point. Removed summary of grammar. It was redundant. As well as the whitespace issue.</p>
 <p>JN: Send proposal to ???. If you don't reply to this thread then it is an implicit approval.</p>
 <a href="#62-interfacing-ecmascript--htmldom-event-loops"><h2 id="62-interfacing-ecmascript--htmldom-event-loops">6.2 Interfacing ECMAScript &amp; HTML/DOM Event Loops</h2></a><p>(Rafael Weinstein)</p>
-<p>RWS: (A single slide) How does ES inegrate with the rest of the specified environment with regard to scheduling tasks.</p>
+<p>RWN: (A single slide) How does ES inegrate with the rest of the specified environment with regard to scheduling tasks.</p>
 <ul>
 <li><p>Enqueue A Task</p></li>
 <li><p>The environment <em>must</em> run the task at some point in the future</p></li>

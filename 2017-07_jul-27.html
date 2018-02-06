@@ -8,7 +8,9 @@
 
 <title>July 27, 2017 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#july-27-2017-meeting-notes"><h1 id="july-27-2017-meeting-notes">July 27, 2017 Meeting Notes</h1></a><p>Adam Klein (AK), Allen Wirfs-Brock (AWB), Andrew Burgese (ABE), Andrew Paprocki (API), Ben Newman (BN), Benoit Girard (BGD), Bradley Farias (BF), Brendan Eich (BE), Brian Terlson (BT), Caridy Patiño (CP), Chip Morningstar (CM), Chris Hyle (CHE), Claude Pache (CLP), Dave Herman (DH), David Teller (DTL), David Turissini (DTI), Dean Tribble (DT), Diego Ferreiro Val (DFV), Domenic Denicola (DD), Gabriel Isenberg (GIG), Istvan Sebestyen (IS), Jeff Morrison (JM), John-David Dalton (JDD), Jonathan Keslin (JKN), Jordan Harband (JHD), Jorge Lopez (JLZ), Kent C. Dodds (KCD), Kevin Gibbons (KG), Kevin Venkiteswaran (KVN), Leo Balter (LBR), Maggie Pint (MPT), Mariko Kosaka (MKA), Mark Miller (MM), Michael Ficarra (MF), Michael Saboff (MS), Nathan Hammond (NHD), Patrick Soquet (PST), Peter Hoddie (PHE), Pierre-Marie Dartus (PMD), Rex Jaeschke (RJE), Robert Palmer (RPR), Ron Buckton (RBN), Sam Goto (SGO), Sebastian Markbage (SM), Shu-yu Guo (SYG), Vladan Djeric (VDC), Waldemar Horwat (WH), Yehuda Katz (YK),</p>
+<a href="#july-27-2017-meeting-notes"><h1 id="july-27-2017-meeting-notes">July 27, 2017 Meeting Notes</h1></a><hr>
+<p>Adam Klein (AK), Allen Wirfs-Brock (AWB), Andrew Burgese (ABE), Andrew Paprocki (API), Ben Newman (BN), Benoit Girard (BGD), Bradley Farias (BFS), Brendan Eich (BE), Brian Terlson (BT), Caridy Patiño (CP), Chip Morningstar (CM), Chris Hyle (CHE), Claude Pache (CPE), Dave Herman (DH), David Teller (DTL), David Turissini (DTI), Dean Tribble (DT), Diego Ferreiro Val (DFV), Domenic Denicola (DD), Gabriel Isenberg (GI), István Sebestyén (IS), Jeff Morrison (JM), John-David Dalton (JDD), Jonathan Keslin (JKN), Jordan Harband (JHD), Jorge Lopez (JLZ), Kent C. Dodds (KCD), Kevin Gibbons (KG), Kevin Venkiteswaran (KVN), Leo Balter (LBR), Maggie Pint (MPT), Mariko Kosaka (MKA), Mark S. Miller (MM), Michael Ficarra (MF), Michael Saboff (MS), Nathan Hammond (NHD), Patrick Soquet (PST), Peter Hoddie (PHE), Pierre-Marie Dartus (PMD), Rex Jaeschke (RJE), Rob Palmer (RPR), Ron Buckton (RBN), Sam Goto (SGO), Sebastian Markbåge (SM), Shu-yu Guo (SYG), Vladan Djeric (VDC), Waldemar Horwat (WH), Yehuda Katz (YK),</p>
+<hr>
 <a href="#11iig-numeric-separators-for-stage-2"><h2 id="11iig-numeric-separators-for-stage-2">11.ii.g. Numeric separators for Stage 2</h2></a><p>(Sam Goto, Rick Waldron)</p>
 <ul>
 <li><a href="https://tc39.github.io/proposal-numeric-separator/">proposal</a></li>
@@ -22,7 +24,7 @@
 </ul>
 <p>AWB: similar issue in ES6 when we introduced new numeric literal syntax (0x, 0o, 0b).</p>
 <p>RW: We are following the precedent to the letter: only making changes to <code>Number</code>, nothing else. Let's also think about a new method that can match new numeric grammar! Just don't want to couple that to numeric separators.</p>
-<p>BF: HTML isn't changing their behavior.</p>
+<p>BFS: HTML isn't changing their behavior.</p>
 <p>AWB: Application level user input should not be tied to the syntax of an implementation language.</p>
 <p>MF: explicitly disallow NumericSeparatorLiteral in LegacyOctalIntegerLiteral</p>
 <p>RW: (I explained that this restriction was implicit in the proposal's grammar)</p>
@@ -55,7 +57,7 @@ export {ns};</p>
 </ul>
 <a href="#export-default-from"><h3 id="export-default-from">export-default-from</h3></a><p>(Ben Newman, John-David Dalton)</p>
 <p>BN: This is a similar syntactic sugar. Motivation is that is strictly better than the two lines. It has a nice symmetry with import.</p>
-<p>BF: Do tools currently have this? Is it built-in to the core?</p>
+<p>BFS: Do tools currently have this? Is it built-in to the core?</p>
 <p>BN: Babel has this as a Stage 1 plugin, separate from the modules plugin</p>
 <p>AK: So, this has tools support, as this as a Stage 1 proposal</p>
 <p>BN: Yes, and this provides some validating information, as people are using it.</p>
@@ -64,7 +66,7 @@ export {ns};</p>
 <p>CP: Today you have to <code>export {default} from</code>, then <code>export * from</code>, two lines.</p>
 <p>AK: For this one (<code>export v from &quot;mod&quot;</code>), I think the existing syntax is pretty clear, and the new syntax is not clear, since the exported name is not in curlies--it looks like you're exporting default, and so it seems like a funny form. It would be clearer to say, <code>export { default as v } from mod</code></p>
 <p>LBR: Maybe a real use-case/example will help.</p>
-<p>BF: This a real compiler use, it's sort of a microbenchmark.</p>
+<p>BFS: This a real compiler use, it's sort of a microbenchmark.</p>
 <p>BN: The reason we have special handling of default exports is because we want people to be able to operate in the mental model of the old CommonJS-style exports. If we require people to say <code>export { default as v }</code> then, better or worse, people have to know that default is another named export. Then, they have to depart from the illusion that default exports are sort of special.</p>
 <p>LHD: This proposal doesn't add a capability, since you could do it other ways, but it fixes a sort of asymmetry where this model helps elsewhere.</p>
 <p>JM: Two things: I general agree with the notion of the concept of default as the preferred way, the concern that I have is how to interpret this. I think the objection is mostly with the possible confusion of this syntax. I will skip to my second point on metrics: since this is something you can do today with two lines, the metrics will not be very interesting.</p>
@@ -124,7 +126,7 @@ export {ns};</p>
 <p>DD: For example, a geographically distributed meeting would be an unzoned instant, but maybe a recurring meeting would be based on zoned instant calculations. Or something... I'm out of my depth, but basically, the point is that ther are very distinct use cases, and there is an open TODO in the issue tracker to explain them.</p>
 <p>API: Instant allow you to do map operation, but if you are trying to do subtraction the API has to be aware of the offsets.</p>
 <p>MPT: We can decide how pedantic we want to make the API. Some APIs would force you to do these conversions, though I was not intending to structure the API that way.</p>
-<p>BF: You mentioned  that you removed two, which ones they were?</p>
+<p>BFS: You mentioned  that you removed two, which ones they were?</p>
 <p>MJN: (List of removal Object types here)</p>
 <p>CM: The timezone in its own instance is an annotation rather than an offset.</p>
 <p>MJN: You can't always reliably get the system timezone</p>
@@ -136,7 +138,7 @@ export {ns};</p>
 <p>SYG: The API surface: Do we have anything that introduces a new global? vs potentially a module?</p>
 <p>DD: We had a big discussion about module/namespace/global</p>
 <p>MJN: As with other proposals, this decision will be deferred, depending on where the committee sits at the time with built-in modules</p>
-<p>BF: Subtracting dates?</p>
+<p>BFS: Subtracting dates?</p>
 <p>MPT: Subtraction is a little more complicated to get right and is not included right now; it's a common source of potential bugs in Moment where people have the wrong intuition.</p>
 <p>BT: The order you apply  to this operations can be different, so even if you put the wrong order it will preserve the &quot;right&quot; order?</p>
 <p>MPT: Yes</p>
@@ -164,7 +166,7 @@ export {ns};</p>
 <p>MJN: If anybody feel strongly about Leap seconds, we can talk about it in git, although I would encourage that we not for now.</p>
 <p>??: Is there a specific reason why you are departing from Date object for property accessors. Why would you make inconsistency with civil dates?</p>
 <p>DH: Because is an immutable API, which is a good thing</p>
-<p>BF: Are you freezing those properties?</p>
+<p>BFS: Are you freezing those properties?</p>
 <p>MPT: Yes, the polyfill right now is a getter</p>
 <p>DD: That makes sense; I'd think of these as calculated from internal slots</p>
 <p>MPT: ISO-1 parsing, are we ok with this and defer everything else to ICU? We could otherwise overload the constructors.</p>
@@ -433,7 +435,7 @@ C.prototype.bar.call();
 <p>MM: I don't need to discuss the GC details. I want to understand the meaning of <code>PrivateName.prototype.set</code>.  You can only update things, you cannot add new keys.</p>
 <p>DE: correct. If you want to add new private fields, there's a hack to do it but it's not desirable</p>
 <p>MM: So, at the <code>PrivateName</code> level of abstraction, the registration of a name in the (conceptual) weak map is something that happens by magic. There isn't actually a weak map that's directly accessible to decorators.</p>
-<p>BF: I have problems using a global prototype for this purpose.</p>
+<p>BFS: I have problems using a global prototype for this purpose.</p>
 <p>YK: can we resolve that before stage 3?</p>
 <p>DE: Can we come back to it?</p>
 <p>DE: Yes.</p>
@@ -472,7 +474,7 @@ C.prototype.bar.call();
 <p>WH: I will review all the class proposals. <huzzahs></p>
 <a href="#conclusionresolution-11ive-interaction-of-privacy-fields-and-decorators"><h4 id="conclusionresolution-11ive-interaction-of-privacy-fields-and-decorators">Conclusion/Resolution</h4></a><ul>
 <li>Remains at stage 2.</li>
-<li>Reviewers:  WH, BF, AK</li>
+<li>Reviewers:  WH, BFS, AK</li>
 </ul>
 <a href="#13iia-optional-chaining-operator"><h2 id="13iia-optional-chaining-operator">13.ii.a Optional Chaining Operator</h2></a><p>(Gabriel Isenberg)</p>
 <ul>

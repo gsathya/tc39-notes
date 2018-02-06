@@ -8,11 +8,12 @@
 
 <title>May 23, 2012 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#may-23-2012-meeting-notes"><h1 id="may-23-2012-meeting-notes">May 23, 2012 Meeting Notes</h1></a><a href="#override-mistake-allen-wirfs-brock-mark-miller"><h1 id="override-mistake-allen-wirfs-brock-mark-miller">Override Mistake (Allen Wirfs-Brock, Mark Miller)</h1></a><p>AWB:</p>
+<a href="#may-23-2012-meeting-notes"><h1 id="may-23-2012-meeting-notes">May 23, 2012 Meeting Notes</h1></a><hr>
+<a href="#this-pre-dates-the-recording-of-a-complete-attendees-list"><h2 id="this-pre-dates-the-recording-of-a-complete-attendees-list">This pre-dates the recording of a complete attendees list.</h2></a><a href="#override-mistake-allen-wirfs-brock-mark-miller"><h2 id="override-mistake-allen-wirfs-brock-mark-miller">Override Mistake (Allen Wirfs-Brock, Mark Miller)</h2></a><p>AWB:</p>
 <ul>
 <li>The correct people are not here for this discussion, defer to next meeting</li>
 </ul>
-<a href="#414-unicode-norbert-lindenderg"><h1 id="414-unicode-norbert-lindenderg">4.14, Unicode (Norbert Lindenderg)</h1></a><p>NL:</p>
+<a href="#414-unicode-norbert-lindenderg"><h2 id="414-unicode-norbert-lindenderg">4.14, Unicode (Norbert Lindenderg)</h2></a><p>NL:</p>
 <ul>
 <li>Regular expressions</li>
 <li>Certain unclear, discuss with Unicode Consortium
@@ -50,7 +51,7 @@ see:
 <li>Confirms no difference.</li>
 </ul>
 <p>Resolution: Promoted unanimously to harmony status</p>
-<a href="#411-daylight-savings-luke-hoban"><h1 id="411-daylight-savings-luke-hoban">4.11, Daylight Savings (Luke Hoban)</h1></a><p>Move to remove/reword:</p>
+<a href="#411-daylight-savings-luke-hoban"><h2 id="411-daylight-savings-luke-hoban">4.11, Daylight Savings (Luke Hoban)</h2></a><p>Move to remove/reword:</p>
 <pre><code>    15.9.1.8 &quot;An implementation of ECMAScript is expected to determine the daylight saving time algorithm.&quot;
 </code></pre>
 <p>AWB:</p>
@@ -71,7 +72,7 @@ see:
 <p>more discussion.</p>
 <p>Resolution: Remove the spec text, new additions will be considered as new proposal</p>
 <p><em>Not</em> errata.</p>
-<a href="#410-objectobserve-rafeal-weinstein"><h1 id="410-objectobserve-rafeal-weinstein">4.10 Object.observe (Rafeal Weinstein)</h1></a><p>Rafeal Weinstein:</p>
+<a href="#410-objectobserve-rafeal-weinstein"><h2 id="410-objectobserve-rafeal-weinstein">4.10 Object.observe (Rafeal Weinstein)</h2></a><p>Rafeal Weinstein:</p>
 <ul>
 <li>Introduction to proposal</li>
 </ul>
@@ -167,7 +168,8 @@ see:
 <li>Asking for blessing to prototype in v8: approved.</li>
 </ul>
 <p>Resolution: Needs more exploration</p>
-<a href="#spec-issues-allen-wirfs-brock"><h1 id="spec-issues-allen-wirfs-brock">Spec Issues (Allen Wirfs-Brock)</h1></a><p><em>Object.isObject</em></p>
+<a href="#spec-issues"><h2 id="spec-issues">Spec Issues</h2></a><p>(Allen Wirfs-Brock)</p>
+<p><em>Object.isObject</em></p>
 <p>Misses the mark on actual needs.</p>
 <p>BE:</p>
 <ul>
@@ -223,9 +225,10 @@ Plenty of opposition based on clarity.</p>
 <li><strong>proto</strong></li>
 <li>grawlix</li>
 </ol>
-<p>Resolution: Indefinite postpone</p>
-<p><em>Moustache</em></p>
-<p>o.{ p: v }</p>
+<a href="#conclusionresolution-spec-issues"><h4 id="conclusionresolution-spec-issues">Conclusion/Resolution</h4></a><ul>
+<li>Indefinite postpone</li>
+</ul>
+<a href="#moustache"><h2 id="moustache">Moustache</h2></a><p>o.{ p: v }</p>
 <p>BE:</p>
 <ul>
 <li>Propose that moustache is kept, but still consider Object.extend</li>
@@ -248,23 +251,33 @@ Just Assign
 Both Define and Assign
 Alone
 Applied to object literals</p>
-<p>Resolution: Return to strawman for revision, needs own wiki page.</p>
-<p><em>Computed Keys</em></p>
-<p>Erik Arvidsson:</p>
+<a href="#conclusionresolution-moustache"><h4 id="conclusionresolution-moustache">Conclusion/Resolution</h4></a><ul>
+<li>Return to strawman for revision, needs own wiki page.</li>
+</ul>
+<a href="#computed-keys"><h2 id="computed-keys">Computed Keys</h2></a><p>Erik Arvidsson:</p>
 <ul>
 <li>Today, properties are static and knowable, computed keys are not knowable.</li>
 </ul>
-<p>Resolution: Deferred.</p>
-<p><em>SealedObjectLiteral</em></p>
-<p>See: <a href="https://bugs.ecmascript.org/show_bug.cgi?id=362">https://bugs.ecmascript.org/show_bug.cgi?id=362</a></p>
-<p>Resolution: Postponed until ES7.</p>
-<p><em>String.prototype.toArray</em></p>
-<p>Resolution: Removal from draft.</p>
-<a href="#weak-refs"><h1 id="weak-refs">Weak Refs</h1></a><p>Yehuda Katz:</p>
+<a href="#conclusionresolution-computed-keys"><h4 id="conclusionresolution-computed-keys">Conclusion/Resolution</h4></a><ul>
+<li>Deferred.</li>
+</ul>
+<a href="#sealedobjectliteral"><h2 id="sealedobjectliteral">SealedObjectLiteral</h2></a><p>See: <a href="https://bugs.ecmascript.org/show_bug.cgi?id=362">https://bugs.ecmascript.org/show_bug.cgi?id=362</a></p>
+<a href="#conclusionresolution-sealedobjectliteral"><h4 id="conclusionresolution-sealedobjectliteral">Conclusion/Resolution</h4></a><ul>
+<li>Postponed until ES7.</li>
+</ul>
+<a href="#stringprototypetoarray"><h2 id="stringprototypetoarray">String.prototype.toArray</h2></a><a href="#conclusionresolution-stringprototypetoarray"><h4 id="conclusionresolution-stringprototypetoarray">Conclusion/Resolution</h4></a><ul>
+<li>Removal from draft.</li>
+</ul>
+<a href="#weak-refs"><h2 id="weak-refs">Weak Refs</h2></a><p>Yehuda Katz:</p>
 <ul>
 <li>Use case: observers</li>
 </ul>
-<p>Resolution: Continued, due to lack of time.</p>
-<a href="#value-objects"><h1 id="value-objects">Value Objects</h1></a><p>Brendan demos, explanation of the implementation and operator overloading</p>
+<a href="#conclusionresolution-weak-refs"><h4 id="conclusionresolution-weak-refs">Conclusion/Resolution</h4></a><ul>
+<li>Continued, due to lack of time.</li>
+</ul>
+<a href="#value-objects"><h2 id="value-objects">Value Objects</h2></a><p>Brendan demos, explanation of the implementation and operator overloading</p>
+<a href="#conclusionresolution-value-objects"><h4 id="conclusionresolution-value-objects">Conclusion/Resolution</h4></a><ul>
+<li>none</li>
+</ul>
 
 </body>

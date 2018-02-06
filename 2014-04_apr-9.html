@@ -8,7 +8,9 @@
 
 <title>April 9, 2014 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#april-9-2014-meeting-notes"><h1 id="april-9-2014-meeting-notes">April 9, 2014 Meeting Notes</h1></a><p>Doug Crockford (DC), Brian Terleson (BT), Luke Hoban (LH), Dmitry Lomov (DL), Waldemar Horwat (WH), Allen Wirfs-Brock (AWB), John Neumann (JN), Rick Hudson (RH), Rick Waldron (RW), Eric Ferraiuolo (EF), Jafar Husain (JH), Jeff Morrison (JM), Seo-Young Hwang (SYH), Mark Honenberg (MH), Caridy Patino (CP), Yehuda Katz (YK), Niko Matsakis (NM), Ben Newman (BN), Filip Pizlo (FP), Norbert Lindenberg (NL), Sebastian Markbage (SM), Mathias Bynens (MB), Rafael Weinstein (RWS), Jaswanth Sreeram (JS), Alex Russell (AR), Istvan Sebestyen (IS), Mark Miller (MM), Tatiana Shpeisman (TS), Brandon Benvie (BB), Brendan Eich (BE)</p>
+<a href="#april-9-2014-meeting-notes"><h1 id="april-9-2014-meeting-notes">April 9, 2014 Meeting Notes</h1></a><hr>
+<p>Doug Crockford (DC), Brian Terleson (BT), Luke Hoban (LH), Dmitry Lomov (DL), Waldemar Horwat (WH), Allen Wirfs-Brock (AWB), John Neumann (JN), Rick Hudson (RH), Rick Waldron (RW), Eric Ferraiuolo (EF), Jafar Husain (JH), Jeff Morrison (JM), Seo-Young Hwang (SYH), Mark Honenberg (MH), Caridy Patiño (CP), Yehuda Katz (YK), Niko Matsakis (NM), Ben Newman (BN), Filip Pizlo (FP), Norbert Lindenberg (NL), Sebastian Markbåge (SM), Mathias Bynens (MB), Rafeal Weinstein (RWN), Jaswanth Sreeram (JS), Alex Russell (AR), István Sebestyén (IS), Mark S. Miller (MM), Tatiana Shpeisman (TS), Brandon Benvie (BB), Brendan Eich (BE)</p>
+<hr>
 <a href="#rf-status"><h2 id="rf-status">RF Status</h2></a><p>(John Neumann)</p>
 <p>The May version of the specification is the opt-out version</p>
 <p>See:
@@ -26,31 +28,31 @@ Yes, seconded</p>
 <li>unanimously in favor</li>
 </ul>
 <a href="#objectobserve-update"><h2 id="objectobserve-update">Object.observe Update</h2></a><p>(Rafael Weinstein)</p>
-<p>RWS: The next step was spec text review.</p>
+<p>RWN: The next step was spec text review.</p>
 <p>YK: Reviewed but have feedback</p>
 <p>AWB: Concerned not enough attention from committee members</p>
 <p>YK: Similar concern, but additionally want to see more practical application testing of new features in general.</p>
 <p>AR: Can you be more concrete, with regard to Object.observe</p>
 <p>YK: There is a need for filtering of change records</p>
-<p>RWS: We had hoped to work on this post 1.0</p>
+<p>RWN: We had hoped to work on this post 1.0</p>
 <p>YK: We tried this and it's messy and complicated, so it's either a matter of being messy and complicated in user code or in V8</p>
 <p>LH: Valid and being addressed... How does this correlate to the status of the spec.</p>
 <p>YK: The spec seems fine, but this is an issue discovered when I tried to make something with it.</p>
 <p>LH: More effort has gone into review of this feature than any other</p>
 <p>YK: But needs to be useful to library code.</p>
 <p>AWB: (continuing) I'd feel more confident if more committee members reviewed the spec for correctness.</p>
-<p>RWS: What is the purpose of the reviewer role, in this stage? I assumed it was for the mechanics, not the feature itself. I'm confident we can work through the existing concerns.</p>
+<p>RWN: What is the purpose of the reviewer role, in this stage? I assumed it was for the mechanics, not the feature itself. I'm confident we can work through the existing concerns.</p>
 <p>YK: I think that practitioners need to be given an opportunity to review in real use</p>
-<p>RWS: This should be done much earlier in the process.</p>
+<p>RWN: This should be done much earlier in the process.</p>
 <p>JH: How long is needed to feel comfortable with this?</p>
 <p>YK: We already made implementation attempts and ultimately view them as failures. We wrote real code and discovered real problems.</p>
 <p>LH: So you're not comfortable giving consensus at this point, based on your actual experience.
 ...Concern that consensus blocking this late</p>
-<p>RWS: Propose that we don't move to stage 3, but I want a commitment from Yehuda that to prioritize working through the remaining issues.</p>
+<p>RWN: Propose that we don't move to stage 3, but I want a commitment from Yehuda that to prioritize working through the remaining issues.</p>
 <p>YK: Confirm</p>
-<p>RWS: We should view this as feedback for the new process</p>
+<p>RWN: We should view this as feedback for the new process</p>
 <p>YK: There was feedback, but no action</p>
-<p>RWS: There have been many updates and if there were issues, that was on you to follow up... If there is criticism, it needs to be on record.</p>
+<p>RWN: There have been many updates and if there were issues, that was on you to follow up... If there is criticism, it needs to be on record.</p>
 <p>AWB: In addition to meeting notes record, file bugs to track progress</p>
 <p>YK: In general, if there are concerns, there’s two sides: person A thinks “I should push harder” vs. person B saying “that’s fine” without giving it much thought</p>
 <p>AWB: Still need to be more active reviewing in the committee.</p>
@@ -62,8 +64,8 @@ discussion about filtering in general)</p>
 <li>RW commits to reviewing for spec mechanics</li>
 <li>AWB: “Don’t approve stuff without reading the spec text, dammit” :)</li>
 </ul>
-<p>(Istvan Sebestyen joins remotely)</p>
-<a href="#rf-status"><h2 id="rf-status">RF Status</h2></a><p>JN: (recaps decisions)</p>
+<a href="#royalty-free-status"><h2 id="royalty-free-status">Royalty Free Status</h2></a><p>(István Sebestyén)</p>
+<p>JN: (recaps decisions)</p>
 <p>IS: Issues:</p>
 <ol>
 <li>Status of Third Party contribution</li>
@@ -88,13 +90,13 @@ discussion about filtering in general)</p>
 <p>AWB: The first edition is done, no sign of interest for a second edition.</p>
 <p>IS: Fast track ISO?</p>
 <p>(will follow up)</p>
-<p>RW: Istvan, please send link to FAQ for inclusion.</p>
+<p>RW: István, please send link to FAQ for inclusion.</p>
 <p>confirmed</p>
 <p>BT: CLA needs to be electronic and checked automatically for each pull request (bot)</p>
 <p>RW: Needs to provide access to committee members to confirm contributor agreement.</p>
 <p>EF: Is the vote for just the forms/agreements?</p>
 <p>AWB: The vote is to approve the policy, the forms already exist.</p>
-<a href="#conclusionresolution-rf-status"><h4 id="conclusionresolution-rf-status">Conclusion/Resolution</h4></a><ul>
+<a href="#conclusionresolution-royalty-free-status"><h4 id="conclusionresolution-royalty-free-status">Conclusion/Resolution</h4></a><ul>
 <li>RW/BT/AWB to send CLA requirements (noted above) as need to be successful</li>
 </ul>
 <a href="#parallel-js-spec-report"><h2 id="parallel-js-spec-report">Parallel JS Spec Report</h2></a><p>(Rick Hudson)</p>

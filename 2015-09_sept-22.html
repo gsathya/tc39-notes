@@ -6,11 +6,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
 
-<title>Sept 22, 2015 Meeting Notes</title>
+<title>September 22, 2015 Meeting Notes</title>
 <body class="markdown-body">
-<a href="#sept-22-2015-meeting-notes"><h1 id="sept-22-2015-meeting-notes">Sept 22, 2015 Meeting Notes</h1></a><p>Allen Wirfs-Brock (AWB), Sebastian Markbage (SM), Jafar Husain (JH), Eric Farriauolo (EF), Caridy Patino (CP), Mark Miller (MM), Adam Klein (AK), Michael Ficarra (MF), Peter Jensen (PJ), Domenic Denicola (DD), Jordan Harband (JHD), Chip Morningstar (CM), Brian Terlson (BT), John Neumann  (JN), Dave Herman (DH), Brendan Eich (BE), Rick Waldron (RW), Yehuda Katz (YK), Jeff Morrison (JM), Lee Byron (LB), Daniel Ehrenberg (DE), Ben Smith (BS), Lars Hansen (LHN), Nagy Hostafa (NH), Michael Saboff (MS), John Buchanan (JB), Gorkem Yakin (GY), Stefan Penner (SP)</p>
-<p>On the phone: Mark Miller (MM), Dan Gohmann (DG), John McCutchan (JMC)</p>
-<p>(Need attendance list)</p>
+<a href="#september-22-2015-meeting-notes"><h1 id="september-22-2015-meeting-notes">September 22, 2015 Meeting Notes</h1></a><hr>
+<p>Allen Wirfs-Brock (AWB), Sebastian Markbåge (SM), Jafar Husain (JH), Eric Ferraiuolo (EF), Caridy Patiño (CP), Mark S. Miller (MM), Adam Klein (AK), Michael Ficarra (MF), Peter Jensen (PJ), Domenic Denicola (DD), Jordan Harband (JHD), Chip Morningstar (CM), Brian Terlson (BT), John Neumann (JN), Dave Herman (DH), Brendan Eich (BE), Rick Waldron (RW), Yehuda Katz (YK), Jeff Morrison (JM), Lee Byron (LB), Daniel Ehrenberg (DE), Ben Smith (BS), Lars Hansen (LHN), Nagy Hostafa (NH), Michael Saboff (MS), John Buchanan (JB), Gorkem Yakin (GY), Stefan Penner (SP)</p>
+<p>Remote:
+Mark S. Miller (MM), Dan Gohman (DGN), John McCutchan (JMC)</p>
+<hr>
 <a href="#1-opening-items"><h2 id="1-opening-items">1. Opening Items</h2></a><p>JN: (Introduction)</p>
 <p>JN: Agenda is <a href="https://github.com/tc39/agendas/blob/master/2015/09.md">https://github.com/tc39/agendas/blob/master/2015/09.md</a></p>
 <p>YK: Post ES6, do we want to break up days into plenary and presentation.</p>
@@ -29,9 +31,10 @@
 <li>Agenda approved</li>
 </ul>
 <a href="#4-secretariat-report"><h2 id="4-secretariat-report">4. Secretariat Report</h2></a><p>JN: 1 o'clock on Thursday</p>
-<a href="#51-shared-memory-and-atomics"><h2 id="51-shared-memory-and-atomics">5.1 Shared memory and atomics</h2></a><p>(Lars T Hansen, Mozilla)</p>
-<p><a href="https://github.com/lars-t-hansen/ecmascript_sharedmem">https://github.com/lars-t-hansen/ecmascript_sharedmem</a></p>
-<p><a href="http://lars-t-hansen.github.io/ecmascript_sharedmem/shmem.html">http://lars-t-hansen.github.io/ecmascript_sharedmem/shmem.html</a></p>
+<a href="#51-shared-memory-and-atomics"><h2 id="51-shared-memory-and-atomics">5.1 Shared memory and atomics</h2></a><p>(Lars T Hansen)</p>
+<ul>
+<li><a href="http://lars-t-hansen.github.io/ecmascript_sharedmem/shmem.html">proposal</a></li>
+</ul>
 <p>Need slides</p>
 <p>LHN: Work in progress at Mozilla, Google, etc.</p>
 <p>Use Cases</p>
@@ -427,7 +430,7 @@ Atomics.futexWake(i32c, loc, expect, timeout);
 <p>BE: Seems better than going back to zero</p>
 <p>DE: Diff in how hardware works, between ARM and x86. Proposal to have opaque type for this case</p>
 <p>BE: Don't know how to fix this without support from hardware?</p>
-<p>DG: We have a proposal that works, but we don't have enough confidence. Current proposal doesn't use an intermediate type</p>
+<p>DGN: We have a proposal that works, but we don't have enough confidence. Current proposal doesn't use an intermediate type</p>
 <p>(Copy from slide &quot;questiosn raised by reviewers&quot;)</p>
 <ul>
 <li>SIMD as a built in module (now, global object)?</li>
@@ -576,7 +579,7 @@ m.get(<span class="hljs-literal">NaN</span>); <span class="hljs-comment">// 1</s
 <p>AWB: you could code the equivalent, not as efficiently</p>
 <p>BE: will we learn more to help us decide?</p>
 <p>JMC: this is a relatively new suggestion. I don't think we'll learn anything new performance-wise. If compiler cannot be sure that it is a constant, it can choose not to optimize. Let's just make a call</p>
-<p>DG: difference from extract lane: there are indexes in bounds that we can't be sure to make fast. Slow and tricky to implement</p>
+<p>DGN: difference from extract lane: there are indexes in bounds that we can't be sure to make fast. Slow and tricky to implement</p>
 <p>DE: behavior is strange to have operation throw if it would be slow</p>
 <p>AWB: Still alot to work on in the spec. Is it at API freeze state or not?</p>
 <p>BT: to the best of our knowledge, no changes.</p>
